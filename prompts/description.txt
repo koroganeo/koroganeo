@@ -1,0 +1,44 @@
+MonsterBox Article Platform - Bilingual article management and display system with 646+ articles covering technology, economics, blockchain, and various knowledge domains.
+
+TECHNOLOGY STACK:
+- Frontend: Angular 21.1.4 with standalone components, Signals API, and LinkedSignal
+- Backend: Express 5.1.0 with TypeScript (async/await native support, improved error handling)
+- File Processing: mammoth.js for Word documents, exceljs for Excel metadata
+- Database: In-memory cache with JSON file persistence (SQLite optional for scaling)
+- Language Support: Vietnamese (primary) and English
+
+METADATA SCHEMA (from Excel):
+- genres: Article category (e.g., "Quan điểm - Ý tưởng", "Kinh tế học")
+- titleVi/titleEn: Bilingual article titles
+- tags: Array of topic tags (parsed from string representation)
+- slug: Original article URL (reference)
+- page: Page number in original source
+- difficultyLevel: Content complexity indicator
+- creators: Array of author names
+- createdAt: Publication timestamp
+- crawlStatus: Processing status (Done/Pending)
+- length: Article content length in characters
+
+CORE REQUIREMENTS:
+1. Parse 646 Word (.docx) files using slug-based filename matching
+2. Read Excel metadata and correlate with Word files
+3. Bilingual UI with Vietnamese as default, English toggle
+4. Advanced filtering: by genre, tags, difficulty level, creators, date range
+5. Full-text search across titles and content (both languages)
+6. Responsive article rendering with proper Vietnamese typography
+7. Sort by date, length, popularity, or relevance
+8. Export functionality (PDF, print-friendly)
+
+PROJECT STRUCTURE:
+- /frontend - Angular 21 standalone application with Signals
+- /backend - Express 5 API with async error handling
+- /data - Excel metadata + Word document storage
+- /shared - TypeScript interfaces shared between frontend/backend
+
+DEVELOPMENT PRIORITIES:
+1. Efficient parsing of 646 documents with caching strategy
+2. Bilingual search with Vietnamese diacritic handling
+3. Performance optimization (virtual scrolling, lazy loading)
+4. Clean TypeScript with strict null checks
+5. Accessibility for Vietnamese screen readers
+6. SEO-friendly routing with meta tags

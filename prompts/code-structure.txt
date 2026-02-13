@@ -1,0 +1,656 @@
+Create a production-ready bilingual article platform for MonsterBox with the following specifications:
+
+=== BACKEND (Express 5.1.0 + TypeScript) ===
+
+FRAMEWORK SETUP:
+- Express 5.1.0 with native async/await support and improved error handling
+- TypeScript 5.7+ with strict mode
+- Core dependencies:
+  * express@5.1.0
+  * @types/express@latest
+  * cors@latest
+  * mammoth@latest (Word to HTML conversion)
+  * exceljs@latest (Excel parsing)
+  * compression (gzip middleware)
+  * helmet (security headers)
+  * express-rate-limit (API protection)
+
+FILE STRUCTURE:
+/backend
+  /src
+    /config
+      database.config.ts - Cache configuration
+      excel.config.ts - Excel column mapping
+    /routes
+      articles.routes.ts - Article endpoints
+      metadata.routes.ts - Metadata endpoints
+      search.routes.ts - Search endpoints
+    /services
+      excel.service.ts - Excel metadata parser
+      word.service.ts - Word document processor
+      cache.service.ts - In-memory cache manager
+      search.service.ts - Full-text search engine
+    /models
+      article.interface.ts - TypeScript interfaces
+      metadata.interface.ts
+    /middleware
+      error-handler.ts - Global error handling
+      validate.ts - Request validation
+    /utils
+      vietnamese.utils.ts - Diacritic normalization
+      logger.ts - Winston logger
+    server.ts - Entry point with async setup
+  /data
+    /articles - 646 Word documents (slug-based filenames)
+    MonsterBox_articles_metadata.xlsx
+  tsconfig.json
+  package.json
+
+CRITICAL EXCEL METADATA STRUCTURE:
+{
+  genres: string,              // "Quan điểm - Ý tưởng", "Kinh tế học"
+  titleVi: string,            // Vietnamese title
+  titleEn: string,            // English title
+  tags: string,               // "['Kinh tế', 'Metaverse']" - needs parsing
+  slug: string,               // URL (use for filename matching)
+  page: number,               // Page number
+  difficultyLevel: string,    // "Không có thông tin", etc.
+  creators: string,           // "['Trần Tiến']" - needs parsing
+  createdAt: string,          // "2023-01-12 00:00:00"
+  crawlStatus: string,        // "Done", "Pending"
+  length: number,             // Character count
+}
+
+API ENDPOINTS (Express 5 Async Handlers):
+
+1. GET /api/articles
+   Query params: page, limit, genre, tags[], creators[], difficulty, lang, sortBy, sortOrder
+   Response: { articles: Article[], total: number, page: number, hasMore: boolean }
+
+2. GET /api/articles/:slug
+   Params: slug (extracted from URL)
+   Response: { article: Article, content: string (parsed HTML), metadata: Metadata }
+
+3. GET /api/search
+   Query params: q (search term), lang (vi/en), filters (genre, tags, etc.)
+   Features: Vietnamese diacritic-insensitive search, title + content search
+   Response: { results: Article[], highlights: Map<slug, string[]> }
+
+4. GET /api/metadata
+   Query params: field (genres/tags/creators/difficultyLevels)
+   Response: { values: string[], counts: Map<string, number> }
+
+5. GET /api/stats
+   Response: { totalArticles: number, byGenre: {}, byCreator: {}, avgLength: number }
+
+EXPRESS 5 ASYNC ERROR HANDLING:
+```typescript
+// server.ts - Express 5 native async support
+import express from 'express';
+import { errorHandler } from './middleware/error-handler';
+
+const app = express();
+
+// Express 5 handles async errors automatically
+app.get('/api/articles/:slug', async (req, res) => {
+  const article = await articleService.getBySlug(req.params.slug);
+  if (!article) {
+    throw new NotFoundError('Article not found');
+  }
+  res.json(article);
+});
+
+// Global error handler (Express 5 improved)
+app.use(errorHandler);
+```
+
+KEY SERVICES IMPLEMENTATION:
+
+1. EXCEL SERVICE (Parse 646 articles):
+```typescript
+export class ExcelService {
+  private metadata: Map<string, ArticleMetadata> = new Map();
+  
+  async loadMetadata(filePath: string): Promise<void> {
+    const workbook = new ExcelJS.Workbook();
+    await workbook.xlsx.readFile(filePath);
+    const sheet = workbook.worksheets[0];
+    
+    sheet.eachRow((row, index) => {
+      if (index === 1) return; // Skip header
+      
+      const metadata: ArticleMetadata = {
+        genres: row.getCell(1).value as string,
+        titleVi: row.getCell(2).value as string,
+        titleEn: row.getCell(3).value as string,
+        tags: this.parseArray(row.getCell(4).value as string),
+        slug: row.getCell(5).value as string,
+        page: row.getCell(6).value as number,
+        difficultyLevel: row.getCell(7).value as string,
+        creators: this.parseArray(row.getCell(8).value as string),
+        createdAt: new Date(row.getCell(9).value as string),
+        crawlStatus: row.getCell(10).value as string,
+        length: row.getCell(11).value as number,
+      };
+      
+      this.metadata.set(this.getSlugKey(metadata.slug), metadata);
+    });
+  }
+  
+  private parseArray(value: string): string[] {
+    // Parse "['item1', 'item2']" format
+    return JSON.parse(value.replace(/'/g, '"'));
+  }
+  
+  private getSlugKey(url: string): string {
+    // Extract filename from slug URL
+    return url.split('/').pop() || '';
+  }
+}
+```
+
+2. CACHE SERVICE (Performance for 646 articles):
+```typescript
+export class CacheService {
+  private articleCache: Map<string, { content: string; metadata: ArticleMetadata }> = new Map();
+  private searchIndex: Map<string, Set<string>> = new Map(); // word -> slugs
+  
+  async warmUp(excelService: ExcelService, wordService: WordService): Promise<void> {
+    // Load all metadata first
+    const allMetadata = excelService.getAllMetadata();
+    
+    // Process Word files in batches of 50 to avoid memory issues
+    for (let i = 0; i < allMetadata.length; i += 50) {
+      const batch = allMetadata.slice(i, i + 50);
+      await Promise.all(batch.map(meta => this.cacheArticle(meta, wordService)));
+    }
+  }
+  
+  async cacheArticle(metadata: ArticleMetadata, wordService: WordService): Promise<void> {
+    const content = await wordService.parseWordFile(metadata.slug);
+    this.articleCache.set(metadata.slug, { content, metadata });
+    this.indexForSearch(metadata.slug, metadata, content);
+  }
+  
+  private indexForSearch(slug: string, metadata: ArticleMetadata, content: string): void {
+    const words = this.tokenize(metadata.titleVi + ' ' + metadata.titleEn + ' ' + content);
+    words.forEach(word => {
+      if (!this.searchIndex.has(word)) this.searchIndex.set(word, new Set());
+      this.searchIndex.get(word)!.add(slug);
+    });
+  }
+  
+  private tokenize(text: string): string[] {
+    return normalizeVietnamese(text.toLowerCase())
+      .split(/\s+/)
+      .filter(w => w.length > 2);
+  }
+}
+```
+
+3. VIETNAMESE SEARCH UTILS:
+```typescript
+export function normalizeVietnamese(text: string): string {
+  // Remove Vietnamese diacritics for search
+  const diacritics: Record<string, string> = {
+    'à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ': 'a',
+    'è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ': 'e',
+    'ì|í|ị|ỉ|ĩ': 'i',
+    'ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ': 'o',
+    'ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ': 'u',
+    'ỳ|ý|ỵ|ỷ|ỹ': 'y',
+    'đ': 'd',
+  };
+  
+  Object.keys(diacritics).forEach(key => {
+    text = text.replace(new RegExp(key, 'g'), diacritics[key]);
+  });
+  
+  return text;
+}
+```
+
+=== FRONTEND (Angular 21.1.4) ===
+
+ANGULAR SETUP:
+- Angular 21.1.4 with standalone components
+- Signals API with linkedSignal, computed, effect
+- Resource API for async data loading
+- Modern routing with provideRouter and functional guards
+- HttpClient with inject() and interceptors
+- TailwindCSS for styling (Vietnamese-friendly typography)
+
+COMPONENT STRUCTURE:
+/frontend/src/app
+  /core
+    /services
+      article.service.ts - HTTP + Signals state management
+      search.service.ts - Search with debounce and highlighting
+      language.service.ts - i18n state (vi/en toggle)
+      metadata.service.ts - Filters (genres, tags, creators)
+    /models
+      article.model.ts - TypeScript interfaces (shared with backend)
+      filter.model.ts
+    /interceptors
+      error.interceptor.ts - Global error handling
+      loading.interceptor.ts - Loading state
+    /guards
+      article-exists.guard.ts - Validate article before navigation
+  /features
+    /article-list
+      article-list.component.ts - Main list with filters
+      article-card.component.ts - Article preview card
+      filter-panel.component.ts - Advanced filtering sidebar
+      sort-dropdown.component.ts - Sort options
+    /article-detail
+      article-detail.component.ts - Full article view
+      article-header.component.ts - Title, metadata, breadcrumbs
+      article-content.component.ts - Rendered Word content
+      related-articles.component.ts - Suggestions by tags/genre
+    /search
+      search-bar.component.ts - Global search with autocomplete
+      search-results.component.ts - Results with highlighting
+    /layout
+      header.component.ts - Navigation + language toggle
+      sidebar.component.ts - Filters and metadata navigation
+      footer.component.ts
+  /shared
+    /components
+      pagination.component.ts - Pagination with page info
+      loading-spinner.component.ts
+      empty-state.component.ts
+      tag-chip.component.ts - Clickable tag chips
+    /pipes
+      safe-html.pipe.ts - DomSanitizer for Word content
+      highlight.pipe.ts - Search term highlighting
+      vietnamese-date.pipe.ts - Vietnamese date formatting
+    /directives
+      infinite-scroll.directive.ts - Lazy loading
+
+ANGULAR 21 SIGNALS IMPLEMENTATION:
+
+1. ARTICLE SERVICE (Signals + LinkedSignal):
+```typescript
+import { Injectable, signal, computed, linkedSignal, resource } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable({ providedIn: 'root' })
+export class ArticleService {
+  private http = inject(HttpClient);
+  
+  // Input signals
+  currentPage = signal(1);
+  selectedGenre = signal<string | null>(null);
+  selectedTags = signal<string[]>([]);
+  selectedCreators = signal<string[]>([]);
+  difficulty = signal<string | null>(null);
+  sortBy = signal<'date' | 'length' | 'title'>('date');
+  sortOrder = signal<'asc' | 'desc'>('desc');
+  
+  // LinkedSignal for language (persisted to localStorage)
+  language = linkedSignal(() => {
+    const stored = localStorage.getItem('lang');
+    return (stored === 'en' ? 'en' : 'vi') as 'vi' | 'en';
+  });
+  
+  // Resource API for async data loading (Angular 21)
+  articles = resource({
+    request: () => ({
+      page: this.currentPage(),
+      genre: this.selectedGenre(),
+      tags: this.selectedTags(),
+      creators: this.selectedCreators(),
+      difficulty: this.difficulty(),
+      sortBy: this.sortBy(),
+      sortOrder: this.sortOrder(),
+      lang: this.language(),
+    }),
+    loader: async ({ request }) => {
+      const params = new URLSearchParams();
+      Object.entries(request).forEach(([key, value]) => {
+        if (value !== null && value !== undefined) {
+          if (Array.isArray(value)) {
+            value.forEach(v => params.append(key, v));
+          } else {
+            params.append(key, String(value));
+          }
+        }
+      });
+      
+      const response = await fetch(`/api/articles?${params}`);
+      return response.json();
+    },
+  });
+  
+  // Computed signals
+  hasActiveFilters = computed(() => 
+    this.selectedGenre() !== null || 
+    this.selectedTags().length > 0 || 
+    this.selectedCreators().length > 0 || 
+    this.difficulty() !== null
+  );
+  
+  totalPages = computed(() => {
+    const data = this.articles.value();
+    return data ? Math.ceil(data.total / 20) : 0;
+  });
+  
+  // Effects
+  constructor() {
+    effect(() => {
+      const lang = this.language();
+      localStorage.setItem('lang', lang);
+      document.documentElement.lang = lang;
+    });
+  }
+  
+  // Methods
+  clearFilters() {
+    this.selectedGenre.set(null);
+    this.selectedTags.set([]);
+    this.selectedCreators.set([]);
+    this.difficulty.set(null);
+  }
+  
+  toggleTag(tag: string) {
+    this.selectedTags.update(tags => 
+      tags.includes(tag) 
+        ? tags.filter(t => t !== tag)
+        : [...tags, tag]
+    );
+  }
+}
+```
+
+2. ARTICLE LIST COMPONENT (Signals + Resource):
+```typescript
+import { Component, signal, computed } from '@angular/core';
+
+@Component({
+  selector: 'app-article-list',
+  standalone: true,
+  template: `
+    <div class="container mx-auto px-4">
+      <!-- Header with filters toggle -->
+      <header class="flex justify-between items-center mb-6">
+        <h1 class="text-3xl font-bold">
+          {{ articleService.language() === 'vi' ? 'Bài viết' : 'Articles' }}
+        </h1>
+        <button (click)="showFilters.set(!showFilters())" class="btn-secondary">
+          {{ showFilters() ? 'Ẩn bộ lọc' : 'Hiện bộ lọc' }}
+        </button>
+      </header>
+      
+      <!-- Active filters chips -->
+      @if (articleService.hasActiveFilters()) {
+        <div class="flex flex-wrap gap-2 mb-4">
+          @if (articleService.selectedGenre(); as genre) {
+            <app-tag-chip 
+              [label]="genre" 
+              [removable]="true"
+              (remove)="articleService.selectedGenre.set(null)" />
+          }
+          @for (tag of articleService.selectedTags(); track tag) {
+            <app-tag-chip 
+              [label]="tag" 
+              [removable]="true"
+              (remove)="articleService.toggleTag(tag)" />
+          }
+          <button (click)="articleService.clearFilters()" class="text-sm text-red-600">
+            Xóa tất cả
+          </button>
+        </div>
+      }
+      
+      <!-- Main content grid -->
+      <div class="grid lg:grid-cols-4 gap-6">
+        <!-- Sidebar filters -->
+        @if (showFilters()) {
+          <aside class="lg:col-span-1">
+            <app-filter-panel />
+          </aside>
+        }
+        
+        <!-- Article grid -->
+        <main [class]="showFilters() ? 'lg:col-span-3' : 'lg:col-span-4'">
+          @switch (articleService.articles.status()) {
+            @case ('loading') {
+              <app-loading-spinner />
+            }
+            @case ('error') {
+              <app-empty-state 
+                title="Lỗi tải dữ liệu"
+                message="Vui lòng thử lại sau" />
+            }
+            @case ('success') {
+              @if (articleService.articles.value()?.articles.length; as count) {
+                <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
+                  @for (article of articleService.articles.value()?.articles; track article.slug) {
+                    <app-article-card [article]="article" />
+                  }
+                </div>
+                
+                <app-pagination 
+                  [currentPage]="articleService.currentPage()"
+                  [totalPages]="articleService.totalPages()"
+                  (pageChange)="articleService.currentPage.set($event)" />
+              } @else {
+                <app-empty-state 
+                  title="Không tìm thấy bài viết"
+                  message="Thử điều chỉnh bộ lọc" />
+              }
+            }
+          }
+        </main>
+      </div>
+    </div>
+  `
+})
+export class ArticleListComponent {
+  articleService = inject(ArticleService);
+  showFilters = signal(true);
+}
+```
+
+3. SEARCH SERVICE (Debounced with Signals):
+```typescript
+import { Injectable, signal, computed, effect } from '@angular/core';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
+import { toObservable, toSignal } from '@angular/core/rxjs-interop';
+
+@Injectable({ providedIn: 'root' })
+export class SearchService {
+  private http = inject(HttpClient);
+  
+  searchTerm = signal('');
+  isSearching = signal(false);
+  
+  // Convert signal to observable for RxJS operators
+  private searchTerm$ = toObservable(this.searchTerm).pipe(
+    debounceTime(300),
+    distinctUntilChanged()
+  );
+  
+  // Convert back to signal
+  debouncedTerm = toSignal(this.searchTerm$, { initialValue: '' });
+  
+  // Search results
+  results = computed(() => {
+    const term = this.debouncedTerm();
+    if (!term || term.length < 2) return [];
+    
+    // Trigger search effect
+    this.performSearch(term);
+    return this.cachedResults();
+  });
+  
+  private cachedResults = signal<Article[]>([]);
+  
+  private async performSearch(term: string) {
+    this.isSearching.set(true);
+    try {
+      const results = await this.http.get<{ results: Article[] }>(
+        `/api/search?q=${encodeURIComponent(term)}&lang=${this.languageService.current()}`
+      ).toPromise();
+      this.cachedResults.set(results?.results || []);
+    } finally {
+      this.isSearching.set(false);
+    }
+  }
+}
+```
+
+UI/UX REQUIREMENTS:
+
+TYPOGRAPHY (Vietnamese-optimized):
+- Primary font: Inter or 'Be Vietnam Pro' for Vietnamese diacritics
+- Heading scale: 2.5rem / 2rem / 1.5rem / 1.25rem
+- Body text: 1rem (16px) with 1.6 line-height
+- Vietnamese-specific: proper rendering of ă, â, đ, ê, ô, ơ, ư
+
+COLOR SCHEME:
+- Primary: #2563eb (blue for links and CTAs)
+- Secondary: #64748b (slate for metadata)
+- Background: #ffffff / #f8fafc (light mode)
+- Text: #0f172a (slate-900) for body
+- Accent: #f59e0b (amber for tags/badges)
+
+RESPONSIVE BREAKPOINTS:
+- Mobile: < 768px (single column, bottom navigation)
+- Tablet: 768px - 1024px (2 columns, sidebar toggle)
+- Desktop: > 1024px (3-4 columns, persistent sidebar)
+
+KEY FEATURES TO IMPLEMENT:
+
+1. BILINGUAL INTERFACE:
+   - Language toggle in header (vi/en)
+   - Persist preference to localStorage
+   - Show titleVi or titleEn based on selection
+   - Vietnamese date formatting (e.g., "12 tháng 1, 2023")
+
+2. ADVANCED FILTERING:
+   - Multi-select for tags (checkbox list)
+   - Single-select for genre (radio buttons)
+   - Multi-select for creators (search + select)
+   - Difficulty level dropdown
+   - Date range picker (createdAt)
+   - "Clear all" button
+
+3. SEARCH FUNCTIONALITY:
+   - Global search bar in header
+   - Autocomplete suggestions (top 5 matches)
+   - Vietnamese diacritic-insensitive matching
+   - Highlight search terms in results (yellow background)
+   - Search in both titleVi and titleEn
+   - Search scope toggle: titles only / full content
+
+4. ARTICLE DETAIL VIEW:
+   - Breadcrumb navigation (Home > Genre > Article)
+   - Article metadata card:
+     * Creators with avatars (initials)
+     * Publication date (Vietnamese format)
+     * Reading time estimate (length / 200 words per minute)
+     * Difficulty level badge
+     * Genre and tags (clickable to filter)
+   - Rendered Word content with:
+     * Proper heading hierarchy (h1-h6)
+     * Code blocks with syntax highlighting (if any)
+     * Images with lazy loading
+     * Tables responsive on mobile
+     * Lists with proper indentation
+   - Related articles (same genre or overlapping tags)
+   - Previous/Next navigation
+   - Share buttons (copy link, email)
+   - Print-friendly view
+
+5. PERFORMANCE OPTIMIZATIONS:
+   - Virtual scrolling for large lists (646 articles)
+   - Route-level lazy loading
+   - Image lazy loading with IntersectionObserver
+   - Prefetch next page of articles
+   - Service Worker for offline reading
+   - Compress API responses (gzip)
+
+6. ACCESSIBILITY (WCAG 2.1 AA):
+   - Semantic HTML5 elements
+   - ARIA labels for Vietnamese screen readers
+   - Keyboard navigation (Tab, Enter, Escape)
+   - Focus indicators (2px solid ring)
+   - Skip to content link
+   - Alt text for all images from Word docs
+   - Color contrast ratio > 4.5:1
+
+DEPLOYMENT & CONFIGURATION:
+
+1. ENVIRONMENT VARIABLES:
+```typescript
+// environment.ts
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:3000/api',
+  articlesPerPage: 20,
+  cacheTimeout: 1000 * 60 * 30, // 30 minutes
+  supportedLanguages: ['vi', 'en'],
+  defaultLanguage: 'vi',
+};
+```
+
+2. BUILD OPTIMIZATION:
+- AOT compilation (default in Angular 21)
+- Tree-shaking for unused code
+- Lazy loading for routes
+- Image optimization (WebP format)
+- CSS purging with PurgeCSS
+- Bundle size target: < 500KB initial
+
+3. DOCKER SUPPORT (Optional):
+```dockerfile
+# Multi-stage build for frontend
+FROM node:20-alpine AS frontend-build
+WORKDIR /app/frontend
+COPY frontend/package*.json ./
+RUN npm ci
+COPY frontend/ ./
+RUN npm run build
+
+# Backend runtime
+FROM node:20-alpine
+WORKDIR /app
+COPY backend/package*.json ./
+RUN npm ci --production
+COPY backend/ ./
+COPY --from=frontend-build /app/frontend/dist ./public
+EXPOSE 3000
+CMD ["node", "dist/server.js"]
+```
+
+IMPLEMENTATION ORDER:
+1. Backend: Excel parsing service + metadata endpoints
+2. Backend: Word parsing service + caching strategy
+3. Backend: Search service with Vietnamese normalization
+4. Frontend: Core services (article, search, language) with Signals
+5. Frontend: Article list with filtering (genres, tags, creators)
+6. Frontend: Search bar with autocomplete and highlighting
+7. Frontend: Article detail view with Word content rendering
+8. Integration: Connect all endpoints + error handling
+9. Polish: Responsive design, Vietnamese typography, animations
+10. Testing: Load 646 articles + verify all filters work
+11. Performance: Virtual scrolling, caching, lazy loading
+12. Documentation: Setup guide, API docs, deployment instructions
+
+SAMPLE DATA VALIDATION:
+- Test with provided Excel file (646 articles)
+- Verify tags parsing: "['Kinh tế', 'Metaverse']" → ["Kinh tế", "Metaverse"]
+- Verify creators parsing: "['Trần Tiến']" → ["Trần Tiến"]
+- Verify date parsing: "2023-01-12 00:00:00" → Date object
+- Test Vietnamese search: "tiền ảo" matches "Tiền Ảo" (diacritic-insensitive)
+- Test bilingual display: titleVi/titleEn based on language toggle
+
+ERROR HANDLING:
+- Missing Word files: Log warning, mark as "unavailable", continue loading
+- Corrupted Word files: Try recovery, fallback to "content unavailable"
+- Excel parsing errors: Validate each row, skip malformed data
+- Search timeout: Show "Search taking longer than expected" after 5s
+- Network errors: Retry 3 times with exponential backoff
+
+Please implement this complete solution with production-ready code, proper error handling, and Vietnamese language support throughout the stack.

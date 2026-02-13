@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm run dev:*)",
+      "Bash(timeout:*)",
+      "Bash(ping:*)",
+      "Bash(npx ng serve:*)",
+      "Bash(curl:*)",
+      "Bash(powershell:*)",
+      "Bash(/tmp/read_full.ps1 << 'PSEOF'\n$files = Get-ChildItem 'D:\\\\Software Engineer\\\\Training\\\\Repo\\\\koroganeo\\\\MonsterBox' -Recurse -Filter '2424.docx'\n$f = $files[0]\n$bytes = [System.IO.File]::ReadAllBytes\\($f.FullName\\)\n$text = [System.Text.Encoding]::UTF8.GetString\\($bytes, 0, [Math]::Min\\(1000, $bytes.Length\\)\\)\nWrite-Output $text\nPSEOF)"
+    ]
+  }
+}

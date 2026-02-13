@@ -1,0 +1,357 @@
+Bài Viết: Vì Sao Những Dự Án Gamefi "Play-To-Earn" Thất Bại
+Chuyên mục: ['Quan điểm - Ý tưởng']
+Tags: ['Bitcoin', 'Trò chơi', 'Tài chính', 'Tiền ảo', 'Chuỗi khối']
+Độ chuyên môn: Không có thông tin
+Tác giả: ['Trần Tiến']
+Ngày đăng: 2023-01-09
+
+
+Description:
+
+Thế giới hiện đại phụ thuộc nhiều vào những cơ sở dữ liệu và blockchain đang đưa ra một giải pháp đủ tốt cho vấn đề quản lý hệ thống dữ liệu
+
+Các hệ thống sổ cái blockchain mã nguồn mở phi tập trung cần cơ chế thưởng phạt để có thể được quản lý hiệu quả bởi đại chúng
+
+GameFi trong quá khứ đã vận dụng cơ chế thưởng phạt theo mô hình ponzi nhiều hơn là thực sự giúp ích cho tầm nhìn của blockchain, và đã thất bại
+
+Bài viết:
+
+Game tích hợp blockchain? Play-to-earn? Chơi game cũng kiếm được tiền?
+
+Nửa cuối 2021 và đầu 2022 chứng kiến một cơn sốt thành công với hàng tỷ USD được đổ vào các dự án GameFi [1] và người ta thực sự hoài nghi liệu việc “ngồi chơi game kiếm tiền tươi thóc thật” có phải một thực tế mới hay không. Lúc bấy giờ, hàng tỷ USD được giao dịch qua lại mỗi ngày trên thị trường với hàng hóa chính là token của các tựa GameFi, hàng chục triệu người dùng mới được thu hút giúp tăng thanh khoản cho toàn bộ hệ sinh thái cryptocurrency [2]. Có thời điểm, tổng vốn hóa token của các tựa GameFi lên đến 20 tỷ USD [3]. Play-to-earn, Metaverse, NFT game… trở thành 3 làn sóng chính ghi nhận thành công vượt trội của việc ứng dụng blockchain vào game.
+
+Cho đến giữa năm 2022, mọi thứ sụp đổ.
+
+Đây là một hiện tượng thú vị để chúng ta cùng bàn luận. Nhưng trước khi nói về GameFi, chúng ta cần hiểu blockchain là gì, Bitcoin hoạt động ra sao và những thứ quan trọng khác. Chúng ta cần hiểu vì sao game ứng dụng blockchain là khả thi và vì sao những mô hình kém hiệu quả trong quá khứ không thể phủ nhận được sự thật này.
+
+Đừng lo, tôi sẽ nói một cách ngắn gọn và dễ hiểu nhất. Nhưng ngắn nhất có lẽ sẽ không đủ ngắn.
+
+Xin hãy thứ lỗi cho sự dài dòng vì chúng ta sẽ cần đi từ bản chất để hiểu một thứ gì đó một cách bản chất. Tôi đề xuất bạn nên chọn một chỗ thoải mái, rồi chúng ta sẽ cùng nhau tìm hiểu về thế giới.
+
+1. Thế giới dữ liệu
+
+Điều đầu tiên tôi muốn mọi người nhận ra là thế giới này hoạt động dựa trên dữ liệu. Mặc dù không phải tất cả những gì xảy ra đều được ghi lại và lưu trữ dưới dạng dữ liệu, nhưng tất cả những gì đã được lưu lại dưới dạng dữ liệu sẽ được xem là những gì đã và đang xảy ra. Nôm na, lịch sử có thể rất đa dạng nhưng tất cả những gì chúng ta biết về lịch sử chỉ là những gì đã được ghi lại.
+
+Nhưng hơn cả thế, người ta sử dụng sổ sách và các ghi chép để lưu trữ những thứ dạng: bạn là ai, sinh ra vào lúc nào, công dân của quốc gia nào, sở hữu bao nhiêu tiền, đóng bao nhiêu thuế, căn nhà bạn đang ở có phải của bạn hay không, ai là vợ/chồng của bạn, ai là con của bạn… Tóm lại sự tồn tại của chúng ta bên trong xã hội được quyết định bởi việc dữ liệu về chúng ta được mô tả như thế nào.
+
+Chẳng hạn, tôi chỉ thực sự là chủ sở hữu của ngôi nhà mình đang ở nếu như cơ sở dữ liệu của chính quyền nói rằng đó là ngôi nhà của tôi. Khi tôi bán căn nhà ấy lại cho bạn, chúng ta sẽ phải cùng ra văn phòng công chứng để họ xác nhận hợp đồng, rồi họ ghi vào sổ sách rằng chủ sở hữu mới của căn nhà ấy là bạn. Điều tương tự cũng đúng với việc tôi sở hữu bao nhiêu tiền, nhận tiền từ ai và chuyển tiền cho ai. Ngân hàng nơi tôi mở tài khoản sẽ ghi vào sổ sách rằng, giả sử như, tôi có một trăm triệu. Ngân hàng nơi bạn mở tài khoản cũng sẽ ghi vào sổ sách số tiền mà bạn sở hữu, giả sử như, một trăm tỷ (chà, bạn giàu hơn tôi nhiều đấy). Sổ sách của các ngân hàng này được quản lý chung bởi một ngân hàng lớn nhất là ngân hàng trung ương. Ngân hàng trung ương đảm bảo việc sổ sách của toàn bộ các tổ chức tài chính trong quốc gia phải khớp với nhau và không có bất kỳ gian lận nào. Các ngân hàng của các quốc gia khác nhau lại cùng thống nhất với nhau trong những hệ thống kết nối với nhau về mặt sổ sách theo cơ chế tương tự. Về cơ bản họ cần đảm bảo tất cả những con số và tất cả những giao dịch được ghi lại là hợp lệ và thống nhất.
+
+Vậy, khi tôi chuyển hết một trăm triệu của tôi cho bạn, mặc dù tôi kỳ vọng sẽ có một tay thủ thư bặm trợn nào đó cầm chùm chìa khóa cổ đi vào kho ngân khố, mở két sắt của tôi ra, cầm một bao tiền rồi đưa cho một nhóm vệ sĩ đeo kính đen mang đến ngân hàng của bạn để người ta bỏ bao tiền ấy vào két sắt của bạn… trên thực tế mọi thứ lại khá nhàm chán, các ngân hàng chỉ đơn giản là sửa lại sổ sách của họ và thông báo lại cho những ngân hàng khác bên trong hệ thống.
+
+Có thể nói số phận của chúng ta về cơ bản là những mẩu dữ liệu được ghi chép bên trong những hệ thống sổ sách được quản lý bằng cơm như vậy. Ngày nay người ta có sử dụng máy tính để mọi thứ trở nên dễ dàng hơn, nhưng về cơ bản vẫn là những con người quyết định việc ghi chép và xác thực những dữ liệu quan trọng ảnh hưởng đến cuộc đời của bất kỳ ai. Chúng ta có thể mất sạch toàn bộ mọi thứ, cũng như có nhiều kẻ không có gì bỗng dưng có rất nhiều tài sản chỉ vì sổ sách ghi lại như vậy. Nhưng mọi người đều tin rằng các hệ thống sổ sách và dữ liệu này hoạt động minh bạch và hiệu quả, do chúng được quản lý bởi những người đáng tin cậy.
+
+Vì thực ra mọi người cũng không thể làm gì khác ngoài việc tin tưởng.
+
+Hiểu rằng các “sự thật” trên thế giới này (như số tiền bạn có và những giao dịch bạn thực hiện với số tiền ấy) là các dữ liệu được ghi chép bằng các sổ sách được quản lý bởi các đơn vị cụ thể là một bước quan trọng để hiểu được lợi ích của blockchain. Bởi vì blockchain hoạt động giống một cuốn sổ, vì thế những cơ chế ghi chép, lưu trữ, quản lý những dữ liệu bên trên cuốn sổ ấy có thể giúp chúng ta tái tạo lại những mô hình quản lý dữ liệu trên thế giới thực một cách hiệu quả hơn.
+
+2. Mã hóa
+
+Bây giờ tôi sẽ giải thích cách Bitcoin hoạt động như thế nào, và mọi người sẽ hiểu vì sao nó có thể trở thành một trong những cuốn sổ cái lớn nhất ghi lại các thông tin liên quan đến sở hữu tài sản (BTC) và các giao dịch.
+
+Đầu tiên chúng ta biết rằng việc chuyển tiền giữa cá nhân thông qua ngân hàng không yêu cầu “chuyển một túi tiền có thực”, mà dựa trên việc thao đổi các thông điệp, nên việc chuyển tiền thông qua mạng BTC cũng liên quan trực tiếp đến trao đổi các thông điệp. Như vậy, nếu như các ngân hàng cập nhật sổ cái của họ để ghi lại các giao dịch của chúng ta, thì mạng Bitcoin cũng cập nhật sổ cái của chính nó để ghi lại các giao dịch của chúng ta. Sự khác biệt nằm ở việc sổ cái của ngân hàng thì do ngân hàng nắm giữ, còn sổ cái của Bitcoin thì được nắm giữ bởi tất cả mọi người.
+
+Để hiểu về Bitcoin thì chúng ta cần hiểu về hai thứ mấu chốt (tôi đã giản lược khá nhiều đủ để mọi người hiểu và mọi người nên tự tìm hiểu thêm vì chúng khá thú vị):
+
+(1) Dữ liệu trên mạng lưới là dữ liệu mã hóa:
+
+Mỗi người sở hữu một khóa cá nhân và một khóa công khai. Khóa công khai sẽ đại diện cho số tài khoản/địa chỉ ví, trong khi khóa cá nhân đại diện cho chữ ký hay xác nhận của chủ tài khoản. Các mã khóa này sẽ được dùng để giải mã những thông điệp được truyền đi bên trong hệ thống. Cách thức mã hóa này quan trọng bởi vì nó tạo ra được các “thực thể” bên trong mạng lưới. Hệ thống ngân hàng hoạt động được vì thế giới có sự tồn tại của bạn và sự tồn tại của tài khoản mà ngân hàng tạo ra cho bạn. Nhưng chúng ta phải hiểu rằng mạng Bitcoin xuất hiện giữa thinh không và chúng cần có những cơ chế triết học vững chắc để xác định xem cái gì là “cái tồn tại” trước khi đảm bảo rằng những “cái tồn tại” ấy có thể tương tác được với nhau. Thế giới Bitcoin không phải thế giới vật lý, nên chúng ta không thể định nghĩa “đây là một người” trên đó được. Thế giới Bitcoin cũng không tồn tại hệ thống ngân hàng và các quy ước quốc tế, nên cũng không thể định nghĩa như thế nào là “một tài khoản ngân hàng”.
+
+Vì vậy, cơ chế mã hóa này là cốt lõi và nền tảng Bitcoin tạo ra một mạng lưới cho riêng mình mà ở đó mỗi khóa cá nhân sẽ đại diện cho một “người” và mỗi khóa công khai sẽ đại diện cho một “tài khoản”. Khi tôi gửi 1 BTC cho bạn, trên thực tế là sử dụng khóa cá nhân của tôi để mã hóa một thông điệp gửi đến khóa công khai của bạn, rồi bạn dùng khóa cá nhân của bạn để giải mã thông điệp đó và sở hữu hữu BTC kia. Tóm lại, trước khi có thể giúp “mọi người” chuyển tiền cho nhau trên mạng lưới, mạng Bitcoin cần định nghĩa được như thế nào là “mọi người”, như thế nào là “tiền” và như thế nào là “chuyển tiền”.
+
+Vì vậy, cơ bản cách thức mã hóa dữ liệu mà mạng Bitcoin sử dụng là để vạch ra được các thực thể mà không cần tới hệ thống ngân hàng, hiểu biết chung (common sense) hay bất kỳ sổ sách gì của thế giới thực. Chúng sử dụng toán học để làm việc đó. Vì vậy, có thể hiểu mạng Bitcoin là một mạng lưới sơ khai và đơn giản về mặt toán học mà ở đó, chúng ta có thể nhìn thấy chúng hoạt động và tương tác với nhau giống như cơ chế “mọi người chuyển tiền cho nhau”. Trên thực tế tất cả chỉ là những thông điệp mã hóa dạng số vô nghĩa được trao đổi qua lại với nhau giữa các địa chỉ ví, nhưng trùng hợp nó lại giống hoàn toàn với một cách một cuốn sổ cái hoạt động!
+
+(2) Dữ liệu được cập nhật trên sổ cái theo cơ chế chuỗi khối (blockchain):
+
+Cơ chế mã hóa chỉ là một phần để xác định cách tạo lập và trao đổi dữ liệu bên trong mạng lưới. Công việc tiếp theo cũng vô cùng quan trọng: làm thế nào để ghi chép và cập nhật dữ liệu bên trong mạng lưới ấy một cách hiệu quả và trung thực? Làm thế nào để biết những dữ liệu được phát sinh và ghi lại là chính xác? Bởi vì dữ liệu có được mã hóa hay không không ảnh hưởng đến việc nó có được ghi chép chính xác hay không. Đây mới là lúc để nói về “công nghệ blockchain”. Blockchain bản chất cũng là nghĩa đen của từ này: chuỗi khối. Blockchain nghĩa là việc ghi chép và lưu trữ dữ liệu thành từng khối, được kết nối thành một chuỗi.
+
+Dữ liệu mã hóa trên mạng lưới được ghi lại theo một chuỗi tuyến tính đảm bảo rằng nếu như có bất kỳ sai lệch nào phát sinh ở giữa chuỗi thì sẽ ảnh hưởng đến dữ liệu của phần sau đó trong chuỗi -> vì vậy dữ liệu chỉ được xem là chính xác khi toàn bộ chuỗi kết nối với nhau theo một logic nhất quán.
+
+Nếu vẫn cảm thấy quá khó hiểu, thì bạn cần lắc đầu một cái thật mạnh để rũ bỏ những quan niệm về một thế giới hoàn chỉnh đã có sẵn. Ý tôi là, thế giới chúng ta đang sống vốn đã có những “thuật toán” sẵn có làm nền để chúng hoạt động được rồi. Chẳng hạn, trình tự của thời gian trên thế giới chính là một chuỗi khối có sẵn: hôm qua -> hôm nay -> ngày mai; một phút trước -> hiện tại -> một phút sau… Còn sự tồn tại của bạn? Rõ ràng bạn đang tồn tại còn gì. Thế nên thế giới vật lý của chúng ta rất an toàn và không thể “hack” được: bạn đưa một tờ tiền cho tôi trước, tôi mới cầm tờ tiền đó đưa cho người khác được. Bạn cũng không thể cùng một lúc đưa một tờ tiền cho 100 người khác nhau đơn giản vì bạn không thể; tôi cũng không thể đưa tờ tiền cho người khác trước khi nhận tiền của bạn bởi vì tôi chưa có nó trong tay. Chúng ta không phải Dr. Strange và đó là lý do thế giới này rất an toàn. Nhưng các hệ thống khác chúng ta tạo ra thì không phải thế giới thực, nó có thể bị “hack”, và người ta thực sự có thể trở thành Dr.Strange ở trên đó. Do vậy, hệ thống ngân hàng sẽ phải xây dựng một “hệ thống dữ liệu ảo” và thực hiện ghi chép rất cẩn thận để đảm bảo rằng không bao giờ chấp nhận việc một người cùng một lúc chuyển một trăm triệu cho một trăm người khác nhau ngay cả khi anh ta chỉ có một trăm triệu. Tuy nhiên, những sự cố “ghi chép nhầm lẫn” như vậy vẫn xảy ra trong thế giới tài chính, do sơ xuất, do lỗi, hoặc do con người cố ý khai thác các lỗ hổng. Còn đối với mạng lưới Bitcoin, nơi không gian và thời gian không tồn tại như ở thế giới vật lý, thì cơ chế mã hóa là một cách để kiến tạo không gian và các thực thể bên trên đó, còn cơ chế blockchain là một cách để kiến tạo thời gian.
+
+Mặc dù cả hai đều cố gắng mô phỏng lại cách thế giới thực hoạt động, nhưng sổ cái của hệ thống ngân hàng và sổ cái của mạng Bitcoin lại có cơ chế xác thực khác nhau. Sổ cái của ngân hàng được nắm giữ bởi các ngân hàng và người ta buộc phải tin tưởng vào những người được trao trách nhiệm ghi chép cập nhật và bảo quản dữ liệu bên trên cuốn sổ ấy. Trong khi đó, sổ cái bitcoin được sở hữu công khai bởi tất cả mọi người. Do vậy, về cơ bản mỗi người đều giữ một phiên bản của cuốn sổ cái ghi lại toàn bộ mọi thứ đã đang và sẽ xảy ra bên trên mạng lưới. Bất kỳ một giao dịch nào nảy sinh trên mạng bitcoin (hay nói cách khác là bất kỳ giao tiếp nào được tạo ra giữa các điểm dữ liệu ở bên trong mạng) đều được ghi lại đồng thời ở tất cả mọi cuốn sổ mà mọi người đang nắm giữ. Vì vậy, dữ liệu buộc phải trung thực bởi nó phải là dữ liệu thống nhất.
+
+Tất nhiên nếu như 51% số người nắm giữ sổ cái thống nhất với nhau và cùng sửa đổi sổ sách theo ý họ thì 49% còn lại cũng sẽ phải sửa lại theo cách tương tự theo quy luật đa số. Tuy nhiên, chuyện này sẽ không xảy ra vì mâu thuẫn lợi ích. Cụ thể…
+
+3. Blockchain mã nguồn mở
+
+Để trở thành một người nắm giữ sổ cái, bạn cần một thiết bị phần cứng để tải về phần mềm mã nguồn mở tham gia vào mạng lưới quản lý mạng Bitcoin cùng những người khác. Thiết bị của bạn phải đủ tài nguyên để giải quyết những vấn đề tính toán logic của mạng lưới. Từ đó, thiết bị của bạn và thiết bị của toàn bộ những người khác đang tham gia mạng lưới sẽ biên soạn các giao dịch thành từng khối (block). Khi người ta xác nhận rằng các giao dịch bên trong khối đó đã đúng thứ tự như chúng liệt kê, được chấp nhận thì sẽ được xem là “một khối đã được đào”. Các khối đã đào này sẽ chưa được xem là “đúng chuẩn” cho đến khi chúng được xác nhận là hợp lệ khi nằm trên một chuỗi. Chẳng hạn, trên thực tế một khối trở thành chuẩn khi nó có “năm xác nhận”: xác nhận đầu tiên là khi nó được đào, xác nhận thứ hai là khi khối thứ hai được đào lên và chỉ ngược lại (khớp hoàn toàn và liên kết logic) nó, xác nhận thứ ba là khi khối thứ ba được đào lên và chỉ ngược lại khối trước đó… cứ như thế năm lần.
+
+Các khối này được kết nối liên tục theo một thứ tự nên được gọi là chuỗi khối (blockchain). Sự liên kết này được xác định bằng việc khối mới sẽ chứa đựng một thứ gọi là “hàm băm”. Bạn tạm thời không cần quan tâm hàm băm là gì, chỉ cần hiểu nó là một dạng khóa dùng để phân biệt và xác định các đối tượng khác nhau trong toán học và lập trình. Các số băm này là các dấu chỉ mốc thời gian, giúp xác định thứ tự trước sau của những giao dịch và những khối nằm bên trong chuỗi.
+
+Tóm lại, công việc của các thợ đào Bitcoin cơ bản là đưa ra một danh sách các giao dịch, sau đó tất cả các máy tính bên trong mạng Bitcoin sẽ bỏ phiếu để đồng thuận với danh sách giao dịch đó. Nếu bỏ phiếu thành công (đạt đa số), khối này sẽ trở thành chính thức và đưa vào chuỗi khối.
+
+Từ đây nảy sinh ra một vấn đề mới: vậy sẽ ra sao nếu người ta giả mạo làm rất nhiều thợ đào để bỏ phiếu gian lận? Bởi vì ai cũng có thể trở thành thợ đào?
+
+4. Bằng chứng công việc và bằng chứng cổ phần (proof of work and proof of stake)
+
+Đến đây tôi muốn mọi người lưu ý một điều quan trọng khác về blockchain. Các bạn cần hiểu rằng cơ chế mã hóa và blockchain để TẠO SỔ CÁI sẽ khác với cơ chế để tìm ra người QUẢN LÝ SỔ CÁI.
+
+Chúng ta đã biết mã hóa và blockchain đã trùng hợp tạo ra một loại sổ cái hữu ích mà nhân loại có thể tận dụng làm được nhiều thứ. Nhưng quản lý sổ cái phi tập trung (tức tất cả mọi người cùng quản lý) lại là một bài toán khác. Hiện tại, có hai cách phổ biến nhất để chọn ra người quản lý mà không sợ gian lận là bằng chứng công việc (proof of stake) và bằng chứng cổ phần (proof of work).
+
+Cốt lõi nhất để chống lại những kẻ gian lận là đảm bảo rằng chúng không nhận được bất kỳ lợi ích nào khi gian lận. Vì vậy, cả proof of work lẫn proof of stake đều yêu cầu thợ đào/người xác thực phải bỏ ra một “bằng chứng” nào đó để đảm bảo, khiến cho việc giả mạo hay gian lận không còn khả thi để thực hiện.
+
+Đối với proof of work, các thợ đào sẽ phải tham gia vào một trò chơi giải đố không có quy luật tốn nhiều tài nguyên để được trở thành người xác nhận giao dịch hợp lệ. Về cơ bản, họ phải dùng sức mạnh phần cứng (GPU & CPU) để chạy ngẫu nhiên và tìm ra đáp án đúng cho những bài toán có tỷ lệ đoán trúng cực thấp (hiện tại độ khó là khoảng 1/75 tỷ tỷ - sẽ khó hơn trong tương lai). Không có cách nào hiệu quả để tìm ra đáp án của những bài toán này ngoài việc các thợ đào phải đầu tư phần cứng mạnh và cho nó chạy ngẫu nhiên liên tục khi nào ra kết quả đúng thì thôi. Các thợ đào sẽ phải đầu tư phần cứng và tốn điện để nuôi máy tính giải toán liên tục, để đổi lấy phần thưởng là BTC. Việc trả thưởng BTC cho thợ đào đã được lập trình trên mạng BTC, nhằm khuyến khích sự tham gia của những người sẵn sàng đầu tư giúp mạng lưới được xác thực và hoạt động liên tục. Việc xác nhận cho mạng BTC, hay nói cách khác là trở thành thợ đào, vì vậy rất tốn kém. Do đó, bản thân những thợ đào BTC là những người kỳ vọng nhiều nhất vào giá trị của BTC. Vì vậy, giả sử bạn muốn phá hoại hệ thống BTC và xây dựng hệ thống máy đào lớn đến mức chiếm hơn 51% tổng số thợ đào trên thế giới, thì bạn phải bỏ ra một số tiền cực lớn chỉ để thu về số BTC không có giá trị gì (do mọi người không còn tin tưởng nó nữa). Liệu bạn có làm vậy?
+
+Proof of work vì vậy là một cách để “lọc” ra những người quản lý BTC phù hợp, và dùng những lợi ích kinh tế chắc chắn để đảm bảo rằng mọi người sẽ luôn lựa chọn thực hiện các hành vi đã được thiết kế để vừa đảm bảo lợi ích cho chính họ vừa đảm bảo lợi ích cho những người khác - một cách phi tập trung. Tuy nhiên, việc giải toán như thế này rất lãng phí tài nguyên và vô dụng: kết quả của những bài toán tìm số ngẫu nhiên kia khá vô nghĩa.
+
+Do đó, một cách “lọc” người xác thực khác là cơ chế proof of stake. Nếu như ở các mạng lưới proof of work (PoW) người ta cần chứng minh họ đáng tin cậy bằng các khoản đầu tư khổng lồ chi cho việc giải toán để trở thành người xác thực, thì proof of stake (PoS) yêu cầu mọi người đầu tư mua coin của mạng lưới rồi khóa nó lại dưới dạng cổ phần đảm bảo (staking) để trở thành người xác thực. Về cơ bản cách thức hoạt động của sổ cái cũng như tôi đã trình bày ở mục trên, nhưng để trở thành người quản lý sổ cái thì họ chỉ cần chứng minh rằng họ là một trong những người giữ nhiều cổ phần của mạng lưới.
+
+Một thợ đào bitcoin sẽ kiếm tiền bằng cách: (1) chi tiền để mua máy tính và trả tiền điện -> (2) dùng máy tính và điện để giải toán, xác thực giao dịch và nhận thưởng bitcoin -> (3) giữ hoặc bán bitcoin để đổi lấy tiền.
+
+Một thợ đào Ethereum (hay bất kỳ mạng PoS nào khác) thì kiếm tiền bằng cách: (1) dùng tiền mua ETH -> (2) khóa chúng lại và trở thành người xác thực giao dịch -> (3) được trả phí ETH dựa trên số % ETH đã stake -> (4) giữ hoặc bán ETH để đổi lấy tiền.
+
+Cơ chế PoS cũng an toàn bởi vì nếu bạn muốn tấn công 51%, bạn cần nắm giữ 51% toàn bộ ETH trên thị trường. Vậy lúc này nếu bạn tấn công mạng lưới, ai là người chịu ảnh hưởng nhiều nhất, ngoài người nắm giữ nhiều ETH nhất là bạn? Vì vậy trên thực tế sẽ không ai bỏ tiền ra mua 51% ETH của thế giới chỉ để phá giá tài sản của… chính họ.
+
+Như vậy, về cơ bản chúng ta biết rằng mã hóa và blockchain giúp tạo ra sổ cái. Nhưng chúng ta cần người quản lý sổ cái đáng tin cậy nên cần đảm bảo rằng những người quản lý phải cung cấp bằng chứng cho thấy họ sẽ không đi ngược lại lợi ích của chính họ và số đông, thông qua việc chấp nhận đầu tư có rủi ro. Mạng lưới muốn thu hút mọi người sẵn sàng chịu rủi ro để trở thành người quản lý sổ cái thì phải thưởng bằng coin/token có giá trị. Đối với PoW là phần thưởng cho thợ đào, đối với PoS là phần thưởng cho những ai tham gia staking.
+
+Những phần thưởng này từ đâu ra và làm sao để chúng có giá trị? Việc trả thưởng như thế này ảnh hưởng như thế nào đến toàn bộ hệ sinh thái?
+
+5. Staking và ponzi
+
+Chúng ta cần phải hiểu rằng việc trả thưởng cho thợ đào (PoW) và người xác thực (PoS) là chính đáng và cần thiết. Một nền kinh tế hiệu quả là nơi mọi người đều tìm thấy lợi ích của họ và bỏ công ra để làm việc đem đến lợi ích cho người khác.
+
+Vì vậy, mạng Bitcoin được thiết kế để thợ đào là những người duy nhất khai thác được đồng BTC. Vì họ đã bỏ tiền ra để trở thành thợ đào giúp xác thực giao dịch cho tất cả mọi người, vốn rất tốn kém, nên sau khi họ đào được BTC thì sớm hoặc muộn cũng phải bán ra để đổi lấy tiền mặt. Việc bán BTC ra thị trường như thế này gián tiếp sẽ giúp đồng BTC trở nên phi tập trung hơn, phân phối rộng rãi hơn ra công chúng. Sự phi tập trung này ngược lại thúc đẩy giá trị của BTC, tính phổ biến và bảo mật cho toàn bộ mạng lưới, cũng như đem lại lợi ích cho các thợ đào. Trong khi đó, các mạng PoS như Ethereum hiện nay (trước kia Ethereum cũng hoạt động bằng cơ chế PoW) thì trực tiếp in coin ra và/hoặc sử dụng tiền phí gas từ người dùng mạng lưới để trả công cho người xác thực.
+
+Giá trị của những phần thưởng này (đồng BTC & đồng ETH) được xác định bởi thị trường như đã phân tích trong bài viết trước đó [4]. Và chúng có giá trị bởi người ta cần chúng để thực hiện các giao dịch trên mạng lưới. Tuy nhiên, cơ chế thưởng này sẽ ảnh hưởng đến nguồn cung và giá trị của toàn bộ đồng tiền mã hóa trong thị trường nói chung, nên tỷ lệ và cách thức phân phối cũng cần tuân theo những công thức nghiêm ngặt đảm bảo lợi ích cho các bên.
+
+Bản thân ETH được in ra trả cho người xác thực cũng gây lạm phát đồng ETH, khiến cho động lực đầu cơ của những người xác thực này giảm bớt, khiến họ phải bán ra ở một số thời điểm nhất định thay vì ngày càng gom nhiều coin hơn để xác thực và nhận thưởng nhiều hơn. Vì vậy, nếu như thợ đào của PoW phải bán coin vì tốn kém chi phí vận hành, thì người xác thực của các mạng PoS phải bán coin vì nguy cơ lạm phát. Động lực bán của họ sẽ giúp mạng lưới ngày càng trở nên phi tập trung hơn, và vì vậy, an toàn hơn.
+
+Do đó, có thể thấy cơ chế staking và sản sinh token trả thưởng cho những người trực tiếp đóng góp cho lợi ích của mạng lưới chung là hợp lý. Tuy nhiên, cơ chế staking về sau này đã được lạm dụng bởi rất nhiều dự án khác nơi người nhận thưởng không hề đem đến bất kỳ lợi ích thực sự nào cho hệ sinh thái của dự án.
+
+Chẳng hạn, Ethereum hay Bitcoin, Avalanche, Solana… đều là những dự án layer-1, tức nền tảng đầu tiên để kiến tạo sổ cái ghi lại các giao dịch. Họ đều sử dụng cơ chế PoW hoặc PoS như đã trình bày ở phía trên để mạng lưới hoạt động. Các dự án khác, như GameFi chẳng hạn, sẽ chạy trực tiếp hoặc gián tiếp trên các layer-1 này và về cơ bản không cần đến những thợ đào hay người xác thực của riêng họ vì toàn bộ những công việc này sẽ được xử lý trên layer-1. Tuy nhiên, rất nhiều dự án vẫn “bắt chước” việc staking và trả thưởng cho người dùng, ngay cả khi các nhóm người dùng này không đem đến lợi ích thực tế nào cho toàn bộ hệ sinh thái, không góp công để xác thực giao dịch và không ảnh hưởng đến chức năng của sản phẩm. Rốt cuộc những stakeholder sẽ ảnh hưởng như thế nào đến gameplay của những người chơi tham gia hệ thống? Vì sao chúng ta lại phải trả thưởng cho những người khóa tài sản của họ mặc dù bản thân việc khóa tài sản ấy không đem đến lợi ích có thực nào cho bất kỳ ai?
+
+Trên thực tế, rất nhiều dự án crypto nói chung và GameFi nói riêng tận dụng cơ chế staking và trả thưởng như một dạng khuyến mãi thu hút người dùng. Giả sử bạn tham gia một tựa GameFi bất kỳ, bỏ ra một khoản tiền vốn ban đầu để mua vật phẩm (staking), rồi thực hiện một vài thao tác chơi game đơn giản tượng trưng để nhận thưởng từ khoản token mới sẽ được in ra… thì đang đem đến lợi ích cho ai?
+
+Vì vậy, đã có rất nhiều chỉ trích nhắm vào những cơ chế staking thu hút người dùng dạng “ponzi” ngay cả khi cơ chế staking nhận thưởng bản thân nó không gây vấn đề. Việc trả thưởng dạng ponzi về cơ bản chỉ nhằm thu hút ngày càng nhiều hơn những người chơi mới, tạo thêm thanh khoản cho người chơi cũ. Tuy nhiên, bởi vì mô hình kinh tế này không hoạt động dựa trên những đóng góp lợi ích có thực của những người nhận thưởng, trong khi phần thưởng lại khiến tăng nguồn cung hàng hóa (cụ thể là coin và token) khiến giá cả của chúng bị ảnh hưởng và quyền lợi của những người nắm giữ hàng hóa cũng bị ảnh hưởng theo trong khi không có thêm lợi ích. Điều này khiến toàn bộ hệ thống sụp đổ khi không thể thu hút thêm người chơi mới, gây lạm phát token/coin trầm trọng, sụt giảm lợi ích của toàn bộ người dùng bên trong hệ sinh thái và từ đó dự án thất bại.
+
+6. Vì sao các mô hình GameFi cũ thất bại
+
+Sự thành công của Bitcoin đã thúc đẩy sự ra đời của hàng loạt layer-1 khác với khả năng mở rộng cao hơn, mức độ phi tập trung cao hơn hoặc chi phí rẻ hơn (lưu ý chỉ ⅔ trong số phẩm chất này vì bạn không thể cùng lúc tạo ra một nền tảng thành công vượt trội ở cả ba phẩm chất do đây là nan đề chưa thể giải). Sự thành công của các dự án layer-1 mới lại thúc đẩy sự ra đời của một loạt các dự án khác tận dụng cơ chế trả thưởng bằng staking để thu hút người dùng. Phần lớn các dự án này tập trung vào tăng trưởng và thu hút người dùng, nên có thể nói rằng số nhiều trong đó cũng bất chấp để đạt được mục đích trên thay vì bất kỳ tầm nhìn lâu dài nào khác.
+
+Trong đó, các dự án GameFi cũ đã thành công vượt trội trong đợt bullrun (thị trường tăng sôi động) vì cơ chế trả thưởng thu hút người dùng rất tốt do giá token vẫn cao. Tuy vậy, về sau cùng các dự án này cũng thất bại thảm hại và những dự án GameFi hiện dùng cách tương tự không thể tìm thấy được thành công như cũ, chưa nói đến việc họ không thể thu được bất kỳ thành công nào mới.
+
+Trước khi đi vào phân tích nguyên nhân thất bại của các mô hình GameFi cũ, tôi cần nói trước rằng quan điểm của tôi là ủng hộ những lợi ích có thể khai thác được của blockchain và cryptocurrency, cũng như đồng ý rằng việc xây dựng game trên nền tảng blockchain là thú vị và mang tính cách mạng. Bởi vì blockchain tạo ra nhiều quyền lực có thực hơn cho tất cả mọi người, giúp các giao dịch trở nên nhanh chóng hơn, bảo mật hơn, rẻ hơn và người dùng có quyền sở hữu tài sản rõ ràng hơn bao giờ hết. Thế giới của chúng ta là thế giới dữ liệu, và những người nắm dữ liệu đang có quá nhiều quyền lực trong khi phần còn lại của nhân loại không biết phải làm gì khác ngoài tin tưởng họ. Điều này cũng đúng với các tựa game truyền thống. Khi bạn nạp tiền vào một tựa game truyền thống bất kỳ và mua sản phẩm của họ, về cơ bản nhà phát hành game chỉ ghi thêm một số điểm dữ liệu để cấp quyền sở hữu vật phẩm cho bạn. Chưa nói đến việc dữ liệu này có thể bị thao túng, trên thực tế người dùng đã bỏ tiền ra nhưng không có quyền sở hữu thực sự với bất kỳ thứ gì mà họ đã mua. Các vật phẩm này được trao đổi mua bán thông qua hệ thống sổ cái của nhà phát hành, và toàn bộ vật phẩm sẽ bị mất khi nhà phát hành ngừng phát hành game. Điều này đã lặp đi lặp lại trong suốt lịch sử và người ta cho rằng việc bỏ tiền vào game đồng nghĩa với việc chấp nhận sẽ mất tiền cho nhà phát hành để đổi lấy trải nghiệm. Nhưng các trò chơi truyền thống thực sự không giống các tựa game trên máy tính: bạn vẫn nắm quyền sở hữu với bộ bài Yu-Gi-Oh bạn mua và có thể cất nó vào trong tủ để sử dụng cho các mục đích đa dạng khác như sưu tầm hoặc trao đổi mua bán.
+
+Vì vậy, cá nhân tôi tin rằng mọi người nên giảm bớt quyền lực của các nhà phát hành game, nhất là khi một tựa game thường được duy trì và phát triển bởi cộng đồng đông đúc những người chơi game ấy. Do đó việc blockchain hóa, hay ứng dụng cryptocurrency và NFT vào phát hành game trong tương lai là xu thế đáng hoan nghênh và chờ đợi.
+
+Tuy vậy, sự thật rằng game và blockchain gắn bó với nhau trên không hề liên quan gì đến việc bất kỳ tựa game blockchain nào cũng thành công, đặc biệt khi chúng được lập trình hoặc thiết kế để không thể thành công. Trong đó, những vấn đề nổi cộm như:
+
+(1) Mô hình tokenomics dạng ponzi gây lạm phát và kém bền vững
+
+Nếu như các mô hình kinh doanh truyền thống thường sử dụng coupon hay tiền từ nhà đầu tư để thu hút người dùng mới (lấy ví dụ các sàn giao dịch điện tử) và đốt rất nhiều tiền để đạt được thành công này, thì các dự án GameFi lại trực tiếp in token của chính họ để làm phần thưởng thu hút người chơi mới. Theo một nghĩa nào đó thì họ có “tiền miễn phí” để thực hiện mục đích này, ngay cả khi số token họ in ra để làm vậy sẽ khiến lạm phát token và ảnh hưởng đến lợi ích của tất cả mọi người dùng/người chơi/nhà đầu tư đã bỏ tiền cho token đó. Bởi vì thị trường sẽ trực tiếp là người cung cấp thanh khoản đổi số token đó thành tiền mặt. Khi nguồn cung token tăng, theo lý thuyết thì giá trị của mỗi đồng sẽ giảm một chút và đều bằng nhau. Vì tiền trong thị trường không thể có đủ nhiều để cung cấp thanh khoản mãi cho những hàng hóa siêu lạm phát như vậy, nên mặc dù trong ngắn hạn những cơn sốt đầu tư do FOMO sẽ đảm bảo thanh khoản cực lớn cho số token được in ra vô tội vạ, về dài hạn nguồn tiền sẽ yếu dần trong lúc hàng hóa trôi nổi với số lượng cực lớn.
+
+Việc thu hút người chơi bằng cách trả thưởng token này tạo ra một nghịch lý: càng nhiều người chơi sẽ càng cần trả thưởng nhiều hơn và càng gây mất giá cho token mạnh hơn. Vì vậy, khi mọi thứ bị mất nhiệt, vòng xoáy chết (death-spiral) sẽ diễn ra. Thanh khoản sẽ cạn kiệt và gây ra mất giá token nghiêm trọng. Token mất giá lúc này lại khiến phần thưởng trở nên bớt hấp dẫn và không thể thu hút thêm người mới, trong lúc những người chơi cũ rời khỏi thị trường và bán đi số token khổng lồ của họ để tránh lỗ.
+
+Sự sụp đổ này tương tự như sự sụp đổ của bất kỳ mô hình ponzi nào khác.
+
+(2) Chất lượng gameplay, đồ họa không được đầu tư
+
+Chính vì thu hút người chơi bằng token, nên những người nhảy vào chơi game cũng vì bị thu hút bởi phần thưởng là token chứ không vì yếu tố gameplay. Trên thực tế game càng đơn giản dễ chơi dễ trúng thưởng lại càng thu hút. Trong cơn sốt GameFi, các dự án nhìn thấy rằng chỉ cần tận dụng mô hình tokenomics “in tiền miễn phí” kia là đủ, nên một loạt các dự án game kém chất lượng đã được phát hành càng nhanh càng tốt chỉ để tạo ra hết tháp ponzi này đến tháp ponzi khác…
+
+Cơn sốt này khiến người ta quên mất rằng một tựa game thành công thực sự là một tựa game có những đột phá về mặt gameplay, cốt truyện và đồ họa.
+
+Thế giới dù thỉnh thoảng có chút khó hiểu, nhưng bản chất vẫn rất dễ hiểu: con người vẫn theo đuổi các giá trị.
+
+(3) Các tựa game không có thiết kế để ưu tiên ứng dụng blockchain, người dùng cảm thấy mơ hồ về tính cần thiết của việc ứng dụng blockchain
+
+Vì sao người ta sẽ chơi CS:GO, DotA2 hay League of Legends có ứng dụng blockchain thay vì truyền thống? Có một sự thật hiển nhiên là những sản phẩm thành công được xây dựng trên nền móng của hệ sinh thái cũ trên thực tế đã tối ưu với những đặc điểm của hệ sinh thái ấy. Do vậy, hệ thống ngân hàng truyền thống hay cơ chế phát hành game truyền thống vẫn rất thành công và trên thực tế chiếm ưu thế về nhiều mặt so với sự phát triển non trẻ của blockchain. Thực ra blockchain cũng không được sinh ra với mục tiêu lật ngược lại thế giới hay thay thế hoàn toàn những mô hình cũ. Chúng được tạo ra để nhân loại tìm thấy được những giải pháp tối ưu hơn, đáp ứng những nhu cầu mới mẻ hơn.
+
+Tuy vậy, cơn sốt GameFi cũ với sự thành công được kích hoạt bởi hệ thống tokenomics “in tiền miễn phí” trong bối cảnh bullrun dồi dào thanh khoản đã làm lu mờ mọi sự thật khác và người ta tranh thủ đưa những tựa game truyền thống thành công khác lên ứng dụng blockchain chỉ để sau đó… thất bại.
+
+Vì công nghệ mã hóa và blockchain hiện tại đáp ứng mạnh mẽ nhu cầu về lưu trữ và giao dịch, nên các vật phẩm game phải được thiết kế phù hợp với các nhu cầu này để người dùng nhìn thấy việc sử dụng blockchain là hợp lý. Do vậy, một tựa game lý tưởng sẽ cần phải có hệ thống vật phẩm đa dạng nơi người chơi có động lực để trao đổi mua bán liên tục (như các game thẻ bài), nơi tài sản cần quản lý minh bạch và dễ dàng di chuyển bên trong mạng lưới (như các game casino) và tính cá nhân hóa, tính độc nhất lẫn tính sưu tầm cao để phục vụ nhu cầu lưu trữ dưới dạng NFT. Lưu ý rằng giá trị của những vật phẩm này không cần quá cao hoặc quá giá trị, mà bản chất phải đến từ việc thiết kế game tạo ra một loạt các hoạt động trao đổi và mua bán hàng hóa liên tục, cũng như nhu cầu lưu trữ vật phẩm bên trong ví cá nhân. Điều tương tự cũng đúng với các dự án crypto khác: BTC hay ETH có giá trị bởi nó có thể trao đổi mua bán dễ dàng cũng như mọi người có nhu cầu lưu trữ chúng như một dạng tài sản.
+
+Tóm lại, các ứng dụng của blockchain phải thực sự đáp ứng nhu cầu của người dùng, giúp gia tăng trải nghiệm của họ và từ đó, thúc đẩy những người dùng có thực và nhu cầu có thực bên trong hệ sinh thái kinh tế phi tập trung tự vận hành.
+
+Do vậy, sau khi cơn sốt crypto đã đi qua, khi mô hình “in tiền thu hút người chơi mới” đã không còn khả thi, cộng đồng GameFi nói riêng và cryptocurrency nói chung, hay cộng đồng người chơi game truyền thống lớn mạnh ngoài kia, sẽ quay về đúng với lý do mà họ cần ở những tựa game họ đã luôn chọn để chơi trong cả đời: gameplay thú vị, đem đến trải nghiệm tốt, đem đến giá trị giải trí, giá trị cộng đồng cao và những giá trị lâu dài khác. Trong khi đó, những mô hình GameFi cũ lại được thiết kế như các khoản đầu tư rủi ro cao mà ở đó, người chơi quan tâm nhiều đến ROI (lãi suất thực nhận), đối mặt với những cảm giác điển hình của việc đầu tư: cân nhắc lợi ích được mất, tham lam với những khoản lợi mơ hồ trong tương lai và sợ hãi với các biến động của thị trường hiện tại.
+
+Vì vậy, chúng tôi nghĩ các nhà phát triển nên bám sát vào cốt lõi của tựa game mình đã tạo ra để thấy việc người chơi vẫn bỏ tiền vào game, phát sinh nhu cầu trao đổi mua bán và sở hữu vật phẩm, xây dựng cộng đồng... không hề liên quan đến “to-earn”. Các game thủ đã tình nguyện bỏ tiền vào những tựa game họ thích và tình nguyện xây dựng cộng đồng vững mạnh trong suốt hàng chục năm qua, đây là điểm mấu chốt nên khai thác. Chúng tôi nghĩ rằng sẽ tốt hơn nếu chúng ta tạo ra một hệ thống web3 giúp cải thiện, bảo vệ và phục vụ các nhu cầu cho game thủ, chẳng hạn cải thiện tính năng mua bán, gia tăng bảo mật, thiết lập tính sở hữu và những tính năng này phải liên quan trực tiếp đến gameplay hay trải nghiệm của họ. Sự sôi động của thị trường mua bán được tạo ra giữa người dùng nên là mấu chốt để tìm kiếm lợi nhuận. Để làm được như vậy, mọi người nên đặt trọng tâm là người dùng, thay vì thị trường.
+
+Tháng 5 năm 2022, thị trường GameFi chính thức sụp đổ. Bản thân tựa game thành công nhất trong lịch sử GameFi là Axie Infinity cũng tìm kiếm hướng đi mới, mở ra phiên bản free-to-play và để phiên bản play-to-earn chìm vào quá khứ. Trong khi đó, vẫn còn rất nhiều dự án theo sau tiếp tục đi trên lối mòn vốn đã tạo ra các thất bại cũ. Tôi không biết liệu chúng ta có nên chúc họ may mắn hay không.
+
+Như đã nói, thế giới có thể thỉnh thoảng sẽ khó hiểu, nhưng về sau cùng vẫn rất dễ hiểu: chúng ta cùng nhau xây dựng và theo đuổi những giá trị.
+
+
+
+
+
+
+Article: Why Old Gamefi Models Failed
+Genres: ['Perspective - Idea']
+Tags: ['Bitcoin', 'Games', 'Finance', 'Cryptocurrency', 'Blockchain']
+Creators: ['Trần Tiến']
+Date: 2023-01-09
+
+
+Description:
+
+The modern world relies heavily on databases and blockchain is providing a good enough solution to the problem of data system management
+
+Decentralized open-source blockchain ledger systems need a reward and punishment mechanism to be effectively managed by the masse
+
+GameFi in the past has used the ponzi scheme more than it really helped the vision of the blockchain, and has failed
+
+Content:
+
+Blockchain games? Play-to-earn? Make money by playing games?
+
+The second half of 2021 and the beginning of 2022 saw a success frenzy, with billions of dollars poured into GameFi projects [1], and many people wondered ‘whether earning money from playing games’ would become the new reality. At the time, billions of dollars were traded back and forth in the market every day, with the main commodity being GameFi tokens, and this attracted millions of new users and boosted liquidity for the entire cryptocurrency ecosystem. At some points, the total token capitalization of GameFi projects reached 20 billion [3]. Play-to-earn, Metaverse, and game NFTs were crowd-pleasing, all of which denoted the recognized outstanding success of blockchain applications in games.
+
+By mid-2022, everything fell apart.
+
+That is an intriguing phenomenon for discussion. Nevertheless, before discussing GameFi, we must first understand what blockchain is, how Bitcoin works, and other important concepts. We need to comprehend why blockchain gaming is feasible, and why past failures in this section cannot deny it.
+
+Don't worry, I'll keep it brief and straightforward. Please excuse my verbosity, I’m analyzing this topic bottom-up so you can fully comprehend it.
+
+1. A World of Data
+
+First and foremost, this world is data-driven. Though not everything is recorded and saved as data, data-lyzed things are often considered what occurred and are currently occurring. In short, history can be very diverse, but we only know what has been recorded about it.
+
+More than that, people use archives and records to store information on: who you are, when you were born, what country you are from, how much money you own, how much taxes you pay, whether the house you live in is yours or not, who your spouse is, who your child is, etc. In short, our data defines our existence in this society.
+
+For example, I'm the true owner of the property I inhabit if the government database recognizes it as mine. When I sell the house to you, we must go to the notary office to have the contract confirmed, and you recorded as the new property owner. The same is true for how much money I have, who I get it from, and who I give it to. The bank where I opened my account recorded that I have, let’s say, a hundred million dollars. The bank where you opened your account did the same to it, registering a hundred billion dollars (well, you're much richer than me). The central bank, one of the largest banks, manages the ledger of these banks jointly. It ensures that all financial institutions' reports match and are free of fraud. At a larger scale, overseas banks are also connected in their ledging mechanism. Essentially, they must assure all of the numbers and recorded transactions are correct and consistent.
+
+So, when I transfer all my money to you, I might expect some brutish tellers to go into the Treasury, open my safe, take out a bag of money, then give it to bodyguards wearing dark glasses, who will bring my money to your bank and put it in your safe. In fact, the process is not that intriguing: banks will just edit their ledgers and notify others in the system.
+
+Simply put, our existence is a collection of data points archived in such ledging systems. This process has been mostly digitized, but humans are still the one to record and validate important data in everyone's life. We can lose everything while others receive windfalls because the records say so. We all believe this data system is transparent and efficient since it’s run by reliable individuals.
+
+In fact, we have no choice but to believe so.
+
+Recognizing such "facts" in this world are archived in ledgers monitored by entities is a giant step in understanding blockchain. Essentially, blockchain works like those ledgers, but its mechanisms for recording, storing, and managing data can greatly aid us in more efficiently recreating real-world data management models.
+
+2. Cryptography
+
+Now I'll explain how Bitcoin works so that everyone understands why it has the potential to become one of the largest ledgers for recording asset ownership (BTC) and transactions.
+
+To begin with, we’ve learned that bank-to-bank transfer is not "moving a money bag between banks", but is instead information transfer. Money transfer via the BTC blockchain is also information transfer on it. In the same way that banks update their ledgers to record transactions, the BTC ledger is also updated with transaction data. The only difference is decentralization: while banks monitor their own ledgers, BTC’s is held by everyone.
+
+To understand Bitcoin, we must first grab two key concepts (in simplified forms, I recommend you do some research on them since they’re quite interesting):
+
+(1) Data on the network is encrypted:
+
+Everyone is granted a private key and a public key. The public one represents account number/wallet address, while the private key acts as the account holder's signature or confirmation. These keys are used to decrypt information transferred within the network. This encryption mechanism is critical since it establishes "entities". The banking system works for this society recognizes the existence of you and of your bank account. However, it should be noted that the Bitcoin network did not emerge from nothing. To grow, it requires solid philosophical mechanisms in determining what "exists" and interactions between those "entities". Since the BTC world is not physical, we can’t just declare identities on it. It lacks the very banking system and international conventions, and is therefore incapable of defining what "a bank account" is in such a network.
+
+This encryption mechanism is at the core of the BTC network where each private key represents an "entity" and each public key represents an “account". When I send you 1 BTC, I'm actually using my private key to encrypt a message and send it to your public key, and you will then use your private key to decrypt it and get the BTC. To summarize, before the network enables money transfer between “entities”, it must first define “entities" and "money", and how "money transfer" works on it.
+
+The Bitcoin network's data encryption mechanism is to identify entities without banking, common sense, or any real-world data. It’s got algorithms to accomplish that. In other words, it is a primitive and mathematically simple network where algorithms work and interact with each other to imitate the real-life money transfer mechanism. In reality however, these appear as meaningless encrypted messages exchanged between wallet addresses, which looks exactly like a ledger!
+
+(2) Data in the ledger is updated using blockchain:
+
+The encryption mechanism is a part of data generation and exchange within the network. Even when this mechanism is assured, the tasks following it are still crucial. Oftentimes, network users would demand that data are generated correctly, efficiently, and free of fraud, since encryption has nothing to do with accuracy. At this point, we should take a closer look at "blockchain technology".
+
+Literally, blockchain refers to the recording and storage of data in blocks that are linked in a chain. Encrypted data on the network is recorded in a linear sequence, so any deviation in the middle of the string will alter the later part of the chain. Data is considered correct only when the entire chain is connected in a consistent logic.
+
+If it's still too confusing, shake your head and try to unlearn pre-existing notions of a complete world. The world we live in already has "algorithms" to work with. The sequence of world time, for example, yesterday, today, and tomorrow, is itself a pre-existing blockchain. How about your very existence? Obviously, you do exist. Our physical world is very secure and cannot be "hacked": if you give me a bill, I can take it and give it to someone else. You can't give the same bill to 100 different people at the same time, and I can't give it to someone else before receiving your money because I don't have it yet. We are not Dr.Strange, and so our world is very secure.
+
+However, other unreal worlds can be "hacked", and their inhabitants can really become Dr. Strange. The banking system has a "virtual data system" with meticulously recorded data that ensures no one can transfer “the same bill to 100 different people at the same time”. However, incidents of "misrecording" have occurred so many times in the financial world, a result of either human negligence or deliberate exploitation of vulnerabilities. In the BTC world where space and time do not exist, the encryption mechanism is a way to create space and entities, and blockchain is integrated to establish time.
+
+While both attempt to simulate the real world, the banking system's ledger and the Bitcoin network's employ different authentication mechanisms. Banks hold their ledgers, and bankers must rely on the people in charge of keeping the records updated and securing data on it. On the contrary, everyone has access to the bitcoin ledger, and they can inspect everything that has occurred on the network. Any transaction (or, in other words, any interaction between data points within the network) is simultaneously updated in these records. For this reason, the data on it must be accurate to assure consistency.
+
+Of course, if 51% of the ledger holders agree to amend records, the remaining 49% must follow the majority. This scenario, however, will never happen due to conflicts of interest. Specifically…
+
+3. Open-Source Blockchain
+
+To become a ledger holder, you must have a hardware device to run open source software and connect to the Bitcoin operator network. Your hardware must meet technical specifications to solve the computational logic problems of the network. Together with other hardware devices on the network, it’ll compile transactions into blocks. Each is called a "mined block" once it is validated that the compiled transactions are in their order. It will not be regarded as "mined" until it’s validated as being part of a chain. For instance, a block is mined when it’s validated 5 times: once when it’s mined, twice when the second block’s mined (perfectly matched with it). The third confirmation occurs when the third block is mined,... and so forth five times.
+
+These blocks are connected as a chain, forming a blockchain. This connection is determined by the presence of a "hash function" in new blocks. For the time being, you don't need to know what a hash function is; just think of it as a type of math and programming function that distinguishes and identifies different objects. These hashes act as timestamps that aid in determining the order of the chain's transactions and blocks.
+
+In short, the job of Bitcoin miners is to generate the list of transactions, after which all computers in the network vote to validate that list. If the majority validates it, the block is considered mined and added to the blockchain.
+
+Nonetheless, a new issue arises as a result of this: what if people pretend to be miners to cheat, knowing anyone can become a miner?
+
+4. Proof of Work and Proof of Stake
+
+At this point, please take an important note on blockchain: the encryption and blockchain mechanism used to CREATE THE LEDGER is distinct from the mechanism that determines who MANAGES THE LEDGER.
+
+The combination of encryption and blockchain have brought about a useful ledger that humanity can use for a variety of purposes. That said, managing a decentralized ledger (one that is managed by everyone) is a different story. To appoint miners free of fraud, the two most popular methods in use are Proof of Stake and Proof of Work.
+
+To defend against fraudsters is to prevent them from benefiting from frauds. To attain this, both Proof of Work (PoW) and Proof of Stake (PoS) necessitate miners/validators putting up some "proof" to secure it, making forgery or fraud impossible.
+
+With PoW, miners have to participate in a ruleless, resource-consuming puzzle to become a transaction validator. Essentially, they must use hardware power (GPU and CPU) to guess the correct answer to this puzzle with an extremely low success rate (the current rate is about 1/75 billion billion, and will get lower over time). There is no other way to find solutions to puzzles besides miners investing in powerful hardware and letting it fetch infinitely until it comes up with the correct result. This process consumes hardware power and energy to continuously feed the computer in exchange for a BTC reward. This reward is pre-set on the BTC network to encourage participation in mining BTC, assisting the network in validating transactions and continuously operating. Validation, or becoming a miner on the BTC network, is thus prohibitively expensive. For this reason, BTC miners themselves have the highest expectations for BTC value. So, if you want to sabotage the system - by building a miner system that accounts for more than 51% of the total number of miners in the world - you'll have to spend a tremendous amount of money in exchange for valueless BTCs (since people no longer trust it). Would that be wise?
+
+Proof of work is thus a way to "appoint" the suitable BTC validators, and it employs economic benefits to ensure that people will always engage in activities good for both themselves and others - decentralizedly. That said, PoW is more of a waste of time and resources: the  outputs of employing hardware power in guessing random numbers are inconsequential.
+
+Another appointing mechanism is Proof of Stake. To become a validator in a PoW network, people must make large investments to become validators. Nonetheless, in PoS one, validators must have bought and staked the network's coin. A PoW ledger works just like others, but users must prove they’re among those with the most shares of the network to become ledger validators.
+
+In essence, a bitcoin miner earns money by: (1) purchasing computing devices and paying electric bills; (2) employing both in solving puzzles, verifying transactions, and receiving bitcoin rewards; finally (3) holding or selling bitcoins in exchanges.
+
+In contrast, an Ethereum (or other PoS) miner earns money by: (1) purchasing ETH, (2) staking to become a validator, (3) receiving ETH based on her shares on the network, then (4) holding or selling ETH in exchanges.
+
+The PoS mechanism is highly secure. To perform 51% attack, you must own 51% of all ETH in circulation. At that point, who will suffer the most if you attack the network? In fact, no one in his right mind will acquire 51% ETH just to devalue his own assets.
+
+At this point, we’ve learned that encryption and blockchain aid in the creation of the ledger. Since we crave reliable validators, we often demand proof that they will not make risky investments for their, but against the majority's interests. If a network wants to attract validators who are willing to take the risks, it must reward them with valuable coins/tokens. It rewards miners in PoW, and stakers in PoS.
+
+Nevertheless, where do these benefits come from, and how do they get their value? How do such payouts affect the entire ecosystem?
+
+5. Staking and Ponzi schemes
+
+We must recognize that rewarding miners (PoW) and validators (PoS) is just and necessary. An efficient economy is one in which everyone benefits and works to benefit others.
+
+Essentially, the Bitcoin  network is designed so that only miners can mine BTC. Since miners invest huge money in becoming miners, they have to sell their BTC rewards sooner or later. When sold this way, BTC becomes more decentralized and widely distributed to the general public. Meanwhile, PoS networks like Ethereum issue more coins/tokens and reward validators with coins and/or gas fee.
+
+It’s the market which determines the value of those rewards (BTC & ETH) [4]. In essence, they are valuable because people need them for transacting on the network. However, since this rewarding mechanism affects the supply and value of all assets in the market, distributions should also adhere to strict established rules to ensure benefits for all parties.
+
+The issued ETH to reward validators also inflates the currency, reducing speculative motivation. This forces validators to sell ETH at some points, instead of accumulating rewards, staking and gaining more ETH. To sum up, while PoW miners must sell their rewards to cover mining expenses, validators on PoS networks must sell to mitigate the risk of inflation. These selling motivations further decentralize the networks, and consequently make them more secure.
+
+Obviously, the mechanism for staking and rewarding network contributors is justifiable. Overtime, however, this mechanism has been abused by many projects in which the rewarded contribute pretty much nothing to them.
+
+Ethereum, Bitcoin, Avalanche, Solana, etc. are Layer-1 networks, or ledger bases. Projects like GameFi-s run directly or indirectly on these layer-1s, require no miners or validators since it’s the responsibility of base blockchains. Still, many projects feature the staking and reward mechanism, even if stakers provide no real benefit to the overall ecosystem, contribute nothing to the validation process, and exert no effect on the project’s functionality.
+
+How may stakeholders influence network users? And why should networks reward staking behaviors, even though they provide no real benefit to anyone?
+
+In fact, many crypto projects, including GameFi, promote staking to attract users. Playing any GameFi, players are asked to invest an initial capital in purchasing items (staking), and to play the game for a while to get rewarded with newly printed tokens. Who benefits from this?
+
+There has been a lot of criticism on staking, calling it “ponzi”, though the mechanism itself does nothing wrong. In this case, the ponzi payout is to attract new players, boosting liquidity for existing ones. However, this economic model is not based on users’ actual contributions. As rewards (newly issued coins and tokens) increase the supply, the general price is affected, wrecking stakeholders’ position. All these downfalls provide no additional benefits to any party. There will be a point when the project is unable to attract new players, severe token inflation arises, users within the ecosystem lose their benefits. That’s when the project turns to ash.
+
+6. Why old GameFi models failed
+
+Bitcoin's success spawned a slew of other layer-1s with greater scalability, decentralization, or lower costs (here I used ‘or’ because no platform to date is capable of integrating all these features in their network). Consequently, the success of new layer-1s catalyzed the emergence of new projects employing the staking mechanism. The majority of which aim at growth and user acquisition and prioritize attaining both over other long-term goals.
+
+Past GameFi projects achieved exceptional success during the bullrun, due to user-reward mechanisms. Still, they ended up in miserable failure. Following GameFi projects took the same approach but found no such glory, let alone new successes.
+
+Before delving into the causes of the failure of old GameFi models, I'd like to state that I support the exploitable benefits of blockchain and cryptocurrency, and the exciting and revolutionary development of Blockchain games. First, blockchain empowers everyone by making transactions faster, more secure, less expensive, and establishing clearer ownership of assets. Ours is a data world, and data holders wield far too much power, leaving the rest of humanity with little choice but to trust them. The same can be said for traditional games. When you top up to buy an item in traditional games, the publisher will just add new data points to grant you item ownership. While this data can be manipulated, you are in fact  buying something you have no real ownership of. That item trade is recorded in the publisher's ledger, and all items will evanish if the game is canceled. This has happened throughout history. It is widely believed that game top-ups are merely investment in user experience. That said, traditional games are different from video games in that you have ownership over your assets: you can choose to put your Yu-Gi-Oh decks in your closet for a variety of purposes, i.e. collecting or trading.
+
+I believe gamers should limit the power of game publishers, especially when their games are developed and fed by the gamer community. Blockchainization, or the application of cryptocurrency and NFT to future games, is therefore a very promising trend.
+
+That said, this application has nothing to do with the success of blockchain games, which are designed to fail since:
+
+(1) The ponzi tokenomics is inflationary and unsustainable.
+
+While traditional business models use coupons or investor money to attract new users (e.g. electronic exchanges), GameFi projects simply issue new tokens to reward new players. Essentially, they have "infinite money” for this purpose, even if new tokens will inflate the market and harm the interests of all parties. In turn, the market will directly provide liquidity to convert those tokens into cash. Token value should decrease slightly and evenly as the supply increases. Though the circulated money in the market cannot provide perpetual liquidity for such hyperinflationary commodities, the investment crazes from FOMO will ensure liquidity for those tokens in the short term. In the long run, the market will run out of cash while tokens are circulated in extremely large quantities.
+
+Rewarding players with tokens is itself paradoxical: a growing player base demands more reward tokens, and token issuance will in turn devalue. As the growth slows down over time, a death spiral begins. Liquidity dries up, resulting in severe token devaluation. This phenomenon makes reward tokens less appealing and holds back new players, while old players left the market and sold their tokens to avoid losses.
+
+This spiral is akin to the collapse of any other ponzi scheme.
+
+(2) Gameplay and graphics are mediocre.
+
+With the reward token mechanism, projects draw new players in by token rewards, not by the gameplay. In fact, the easier it is to play and win, the more appealing a GameFi becomes. During the GameFi craze, many developers realized that all they needed was taking advantage of the "infinite money" tokenomics. A slew of shoddy games were released as quickly as possible to build new ponzi schemes after another.
+
+This craze causes people to forget that a successful game is one that features outstanding gameplay, plot, and graphics. This world can appear perplexing at times, but its essence remains simple: humans are always pursuing values.
+
+(3) Blockchain applications are not featured in game design, and so their importance sounded ambiguous.
+
+Why would people play blockchain-integrated CS:GO, DotA2, or League of Legends instead of the original versions? It is self-evident that successful products on old ecosystems are optimized for those platforms. For this reason, the traditional banking system or game publication remains very successful and, in many ways, outperforms the nascent blockchain. Nevertheless, blockchain is not created with the intention of turning this world upside-down, or completely replacing existing models: it exists to provide us with more optimal solutions to new needs.
+
+Amid the liquidity-rich bullrun, the old GameFi craze with success from the "infinite money" tokenomics overshadowed all other facts. Game publishers tried to take advantage, integrating blockchain applications to traditional games, but all ended up failing miserably.
+
+For the current encryption and blockchain technologies aid in storage and transaction so well, next-gen games must be designed to meet these needs, and to showcase blockchain application is beneficial. In this manner, an ideal game should feature a diverse item system in which players are engaged in continuous trades (akin to card games) and assets are transparently managed and distributed within the network (akin to casino games). In addition, items must be highly personalized, unique, and collectible to meet the demand for personal storage in forms of NFTs. The value of these items doesn’t have to be insanely high, but the game design must facilitate continuous trading activities and personal storage. The same is true for other crypto projects: BTC or ETH have value because they can be easily traded, facilitating the demand for keeping them as assets.
+
+In short, blockchain applications must cater to user needs, improving their overall experience, promoting real users and needs within the decentralized, self-operation ecosystem.
+
+When the crypto craze passed and the reward token mechanism became obsolete, the GameFi, or the traditional gaming community, could not find their pursued values: exciting gameplay, good user experience, amusement, strong community, and other lasting values. Old GameFi models are designed as high-risk investments in which ROI (return on investment) matters the most, turning gaming into investing. On such platforms, players have to consider gains and losses, crave for speculative gains, and stay fearful of market fluctuations.
+
+On our side, we believe developers should stick to the core values of their products to see players are still topping up the game, fulfilling the trading needs, or building the community. All they do has nothing to do with the "to-earn" part. For decades, gamers have volunteered to invest in games they enjoy and to build strong communities, and this is very important. It’s better, we believe, to develop a web3 system that improves, protects, and serves the needs of gamers, i.e. enhancing the shopping features, increasing security, and establishing ownership. All these features should relate directly to their gameplay or experience, whereas the vibrant market naturally guided by players should be the key to profit. To do that, after all, game projects should put users on top of their list, not the market.
+
+The GameFi market collapsed in May 2022. Axie Infinity, the most successful GameFi project, had to take a new path with a free-to-play version, while the former play-to-earn version turned to ash. Though the growth of Axie Infinity, Sky Mavis' flagship, has slowed down, AXS already achieved the goals of decentralized distribution and token dilution. Given their gains from Axie Infinity's sucess and the fact that AXS has been fully naturally diluted,  Sky Mavis will remain a forerunner in blockchain game development. Instead of adhering to the outdated, error-prone Play-to-earn model, game developers/publishers should consider their audacious decision to change business model. Still, many chose to follow the same path to past failures.
+
+As stated above, this world can be perplexing at times, but its essence remains simple: we are always pursuing values.
+
+
+
+
+
+
+[1]  "BGA Blockchain Game Report 2021," Dappradar.com, 22-Dec-2021. [Online] [Accessed: 3-Jan-2023] - https://dappradar.com/blog/bga-blockchain-game-report-2021?fbclid=IwAR3PojjP4FV7GZjXZZef8CbOeWbiAwFvBNW5xQqHbk-vEBQ9C5kZelcJBUk
+[2]  "BGA Blockchain Game Report 2021," Dappradar.com, 22-Dec-2021. [Online] [Accessed: 3-Jan-2023] - https://dappradar.com/blog/bga-blockchain-game-report-2021?fbclid=IwAR3PojjP4FV7GZjXZZef8CbOeWbiAwFvBNW5xQqHbk-vEBQ9C5kZelcJBUk
+[3]  "BGA Blockchain Game Report 2021," Dappradar.com, 22-Dec-2021. [Online] [Accessed: 3-Jan-2023] - https://dappradar.com/blog/bga-blockchain-game-report-2021?fbclid=IwAR3PojjP4FV7GZjXZZef8CbOeWbiAwFvBNW5xQqHbk-vEBQ9C5kZelcJBUk
+[4]  "Liquidity and valuation on the financial market," Mbpedia.com, 30-Dec-2022. [Online] [Accessed: 5-Jan-2023] - https://mbpedia.com/en/bai-viet/thanh-khoan-ai-la-nguoi-quyet-dinh-gia-cua-cac-mat-hang-tren-thi-truong

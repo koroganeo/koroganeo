@@ -1,0 +1,258 @@
+Bài Viết: Thanh Khoản: Ai Là Người Quyết Định Giá Của Các Mặt Hàng Trên Thị Trường?
+Chuyên mục: ['Kinh tế học']
+Tags: ['Tài chính', 'Bitcoin', 'Kinh tế vĩ mô', 'Tiền ảo', 'Tiền']
+Độ chuyên môn: Không có thông tin
+Tác giả: ['Trần Tiến']
+Ngày đăng: 2023-01-03
+
+
+Description:
+
+Phần lớn giá cả hàng hóa trên thị trường tài chính được định giá thông qua cơ chế đấu giá công khai
+
+Một món hàng có thanh khoản và khối lượng giao dịch đủ lớn, hay nói cách khác là có những buổi đấu giá luôn đông đúc người tham gia, là một mặt hàng có sự đảm bảo tốt về mặt giá cả hơn những mặt hàng khác
+
+Giá cả của hàng hóa trên thị trường có thể bị thao túng nếu như những buổi đấu giá có thể bị thao túng một cách dễ dàng
+
+Bài viết:
+
+Chúng ta đã quen với việc một cốc starbucks có giá 3$ và một ổ hamburger có giá 5$ đến mức không còn thắc mắc về giá cả của chúng nữa. Nếu có ai bán những thứ tương tự, chúng thường có giá tương đương. Nhưng nếu thế giới bỗng dưng xuất hiện những món hàng hoàn toàn mới, làm thế nào để người ta xác định chúng có giá bao nhiêu?
+
+Nếu một quả táo bình thường có giá 1$, quả táo mà Adam đã từng đưa Eve ăn có giá bao nhiêu? 10$, 1000$ hay 1 triệu USD? Làm thế nào để xác định?
+
+Làm thế nào người ta định giá 1 cổ phiếu Apple, giá của 1 BTC hay giá của một bức NFT in hình cục đá nào đó?
+
+1. Cơ chế định giá thông qua đấu giá
+
+Để xác định giá cả của một món hàng nhất định, hầu hết các thị trường hiện tại dùng cơ chế đấu giá. Mức giá của một mặt hàng được xác định bằng mức cao nhất người mua đưa ra và mức thấp nhất người bán sẵn sàng bán, tại một thời điểm nhất định.
+
+Chẳng hạn, chủ nhân của trái táo cấm sẽ tổ chức buổi bán đấu giá quả táo của mình với giá khởi điểm là 1$. Khi có người đầu tiên sẵn sàng mua, giá của trái táo cấm sẽ là 1$. Nếu như có người tiếp theo sẵn sàng trả 10$, giá của nó lúc này là 10$. Rồi 100$, 1000$... Cứ như vậy, mức giá cao nhất có người sẵn sàng mua sẽ là mức giá thị trường của trái táo cấm.
+
+Sau khi buổi đấu giá kết thúc, chủ nhân mới của quả táo quyết định cắt quả táo ra thành 1000 miếng và bán mỗi miếng với giá 1000$, cũng thông qua đấu giá. 1000 chủ nhân mới của những miếng táo này sau đó lại tổ chức bán đấu giá để bán lại những miếng táo của mình. Có những kẻ dẻo miệng bán được 100,000$/miếng, có những người khác cần tiền và sẵn sàng bán chỉ với 100$/miếng.
+
+Bên trong bất kỳ thị trường nào cũng tồn tại những người có nhu cầu mua-bán với những mức giá khác nhau và họ không thể biết được toàn bộ thông tin mua bán của người khác, vì vậy họ sẽ đưa ra quyết định dựa trên việc tối ưu nhất cho họ: người bán đưa ra mức thấp nhất họ có thể chấp nhận và người mua đưa ra mức cao nhất họ chấp nhận.
+
+Để có thể đảm bảo hàng hóa được luân chuyển và người bán-mua đều đạt được mục đích của mình, bên trong thị trường sẽ tồn tại một nhóm gọi là market maker. Market maker là những người sở hữu công cụ hiện đại nhất và có nguồn dữ liệu đầy đủ nhất về thị trường. Các market maker sẽ nhìn thấy được có người rao bán hàng hóa ở giá thấp hơn mức những người khác đang đặt mua, và họ sẽ đứng ở giữa trung gian để mua của người bán và bán cho người mua, ăn phần chênh lệch.
+
+Một sàn giao dịch cũng thường là một market maker vì họ có đầy đủ thông tin đặt lệnh của toàn bộ người dùng bên trên ấy. Thao tác mua bán chênh lệch này được gọi là arbitrage, là một hoạt động kinh tế rủi ro thấp. Arbitrage tồn tại ở khắp mọi nơi. Một người mua rau từ trang trại về bán ở thành phố cũng là arbitrage. Tuy nhiên, để là một market maker trong thị trường tài chính, bạn cần có nguồn vốn dồi dào, công cụ công nghệ cao và dữ liệu đầy đủ.
+
+Các market maker sẽ là người xác định giá thị trường vì họ là những người mua-bán tối ưu nhất. Nhưng cơ sở để họ có thể xác định giá hoàn toàn phụ thuộc vào cung-cầu của thị trường nên arbitrage và thao túng giá không liên quan đến nhau về mặt lý thuyết, dù trên thực tế các market maker có thể vẫn sẽ thao túng giá khi họ có thể làm thế.
+
+2. Thanh khoản
+
+Thanh khoản thị trường thường được hiểu là tốc độ, mức giá, độ tối ưu và chi phí để chuyển đổi một mặt hàng nào đó qua một mặt hàng khác.
+
+Ví dụ, với những thứ có thanh khoản cao như tiền pháp định, bạn sẽ ngay lập tức đổi được bất kỳ thứ gì bạn muốn, rất nhiều người sẵn sàng trao đổi với bạn ngay lập tức và không có rủi ro trượt giá.
+
+Ví dụ khác, bất động sản là một loại tài sản có tính thanh khoản thấp bởi vì bạn sẽ phải tốn hàng tháng đến hàng năm để bán thành công. Một món hàng có tính thanh khoản thấp là một món hàng khó tìm được người mua, việc mua bán diễn ra khó khăn và mức giá chênh lệch giữa những người bán-mua lớn.
+
+Các mặt hàng cùng loại cũng có mức thanh khoản khác nhau. Chẳng hạn, điện thoại iPhone từ lâu đã được cho là có tính thanh khoản cao hơn điện thoại Android cùng phân khúc, vì vậy người ta có thể bán iPhone dễ hơn với mức trượt giá thấp hơn. Trong thị trường chứng khoán, các mã chứng khoán chất lượng cao (bluechip) cũng có thanh khoản tốt hơn và độ trượt giá thấp hơn vì nhiều người sẵn sàng mua hơn. Trong thị trường cryptocurrency cũng tương tự.
+
+Như vậy, để biết liệu trái táo cấm là một mặt hàng có tính thanh khoản cao hay thấp, câu hỏi là:
+
+Có bao nhiêu người sẵn sàng mua chúng và việc mua bán sẽ diễn ra nhanh như thế nào?
+
+Bởi vì cơ chế định giá là đấu giá, thanh khoản tốt sẽ giống một buổi đấu giá thành công với rất nhiều người mua tranh nhau quyền mua. Trong khi đó, nếu như miếng táo bạn sở hữu là một thứ có thanh khoản kém, hãy hình dung thị trường của nó cũng giống một buổi bán đấu giá hẩm hiu thất bại: thay vì nhiều người tranh nhau để mua, ta chỉ thấy người ta tranh nhau bán ở mức giá hợp lý nhất rồi bỏ về.
+
+3. Volume
+
+Như vậy, càng có nhiều người tham gia mua bán, bạn càng có khả năng cao bán được hàng của mình với mức giá mong muốn. Một buổi bán đấu giá thành công cần có nhiều người tham gia. Vậy một thị trường có thanh khoản cao cũng đi kèm với khối lượng giao dịch lớn.
+
+Trong trường hợp có nhiều người sẵn sàng mua một miếng táo cấm ở mức giá 20,000$, chúng ta hiểu rằng toàn bộ táo được rao bán ở mức 20,000$ sẽ hết. Vì vậy, để có thể mua thêm, người mua buộc phải nâng giá lên để có thêm người bán. Quá trình tăng giá này sẽ diễn ra liên tục miễn là vẫn có rất nhiều người cần mua táo. Sự tăng giá của táo gián tiếp thúc đẩy sự gia tăng của những người bán hàng. Như vậy, nhu cầu mua cao sẽ ngay lập tức tăng thanh khoản và khối lượng giao dịch. Vì cứ mỗi đơn hàng đặt mua thêm, sẽ có thêm người bán xuất hiện.
+
+Ở kịch bản ngược lại, nếu có nhiều người muốn bán táo đi, khối lượng giao dịch sẽ bị sụt giảm và tính thanh khoản cũng vậy. Vì cứ mỗi một người bán với giá thấp hơn, những người bán với giá cao hơn sẽ tạm rời khỏi thị trường vì họ chưa chấp nhận bán với giá người khác đang rao bán. Biết rằng những người muốn bán giá cao này sẽ bao gồm toàn bộ người mua đã mua phải hàng ở một mức giá cao hơn trước đó. Và bởi vì luôn có những người sẵn sàng bán hàng với giá thấp, số lượng người mua cũng giảm vì họ không có động lực để cạnh tranh - trên thực tế họ sẽ có thêm động lực để chờ đợi. Thị trường giá giảm vì vậy vừa là kết quả của sự sụt giảm volume vừa là nguyên nhân của sự sụt giảm volume.
+
+Để toàn bộ thị trường có thể biết mức giá hiện tại của các miếng táo cấm là bao nhiêu, các market maker sẽ đi thu thập dữ liệu mua bán trên toàn thị trường và biểu diễn nó dưới dạng đồ thị. Loại đồ thị phổ biến nhất trên thị trường biểu diễn giá dưới dạng các thanh nến. Trong đó, cứ mỗi đơn vị thời gian như phút, giờ, ngày, tuần, tháng, năm… đỉnh của nến là mức giá cao nhất và đáy của nến là mức giá thấp nhất mà những miếng táo này đã được mua-bán thành công trong thời gian đó.
+
+Lưu ý rằng độ dài của mỗi cây nến này không phản ánh số lượng miếng táo đã được đem ra đấu giá. Nếu như ngày hôm qua chỉ có hai miếng táo được bán, với mức giá thấp nhất là 10,000$ và mức cao nhất là 20,000$, đó sẽ là chiều dài của nến. Nếu ngày hôm nay có 100,000 miếng táo được mua đi bán lại liên tục với mức giá thấp nhất là 10,000$ và cao nhất là 20,000$, nến giá cũng sẽ có hình dạng tương tự như hôm qua.
+
+Lưu ý, các thị trường mới được tạo lập liên tục và đồ thị giá bạn thấy không nằm "trong một thị trường", nó là mức phản ánh giá của “rất nhiều thị trường nối tiếp nhau”. Thị trường crypto năm 2021 khác hoàn toàn với thị trường crypto năm 2022 dù dùng chung đồ thị.
+
+4. Trượt giá
+
+Nếu giá của những miếng táo cấm giao động quá nhanh dù ít người tham gia mua bán, ta nói rằng miếng táo ấy đang có mức trượt giá cao. Trượt giá liên quan trực tiếp đến thanh khoản, thanh khoản thấp thì trượt giá cao và ngược lại.
+
+Chẳng hạn, trong trường hợp của bất động sản, mức giá của một căn chung cư thời sốt bất động sản là 1 triệu $, không có nghĩa rằng nó vẫn sẽ có giá như vậy sau vài tháng, thậm chí không có nghĩa rằng nó sẽ giảm xuống còn 900 hay 800 nghìn USD nếu thị trường gặp khủng hoảng. Căn nhà ấy có thể bị giảm ngay lập tức 50% giá trị hoặc hơn chỉ trong một ngày vì ở "buổi đấu giá mới" đó là mức cao nhất người ta sẵn sàng mua.
+
+Tương tự, Bitcoin ở giá 69,000$ và bắt đầu giảm, không có nghĩa nó sẽ giảm từng đô la/BTC, từng chục $ hay từng trăm $, mà chênh lệch có thể lên đến hàng nghìn hay hàng chục nghìn $ trong vài ngày.
+
+Như vậy, nếu bạn quan tâm đến giá cả của những miếng táo cấm hay bất kỳ món hàng nào, bạn cần phải quan tâm đến volume và thanh khoản vì nó ảnh hưởng trực tiếp tới giá cả.
+
+5. Bán phá giá và thao túng thị trường
+
+Bởi vì mức giá thấp nhất của một mặt hàng được rao bán sẽ là giá thị trường, như vậy, bất kể có 1000 người đang sở hữu các miếng táo cấm và tin rằng giá trị của chúng là 1 triệu $, chỉ cần 100 người khác sẵn sàng bán táo với giá 500$ cũng có thể phá giá được toàn bộ thị trường táo cấm. Bởi vì sau đó, người ta sẽ chỉ mua táo ở mức giá 500$ và trao đổi mua bán ở loanh quanh khu vực giá ấy. Thanh khoản ở tầm giá 500$ sẽ quyết định giá của táo trong thị trường tại thời điểm ấy, còn những miếng táo 1 triệu $ sẽ phải nằm ngoài thị trường.
+
+Điều tương tự cũng đúng với mọi thị trường khác trên thế giới: giá của tài sản được xác định bởi giá trị giao dịch thị trường được tạo lập bởi thiểu số. Nếu như 900 người đang giữ táo kia không đủ khả năng mua hết số táo giá thấp hơn trong thị trường, họ sẽ không bao giờ đẩy giá táo lên mức kỳ vọng của họ được. Thị trường cryptocurrency hay chứng khoán cũng tương tự, số BTC hay cổ phiếu APPL bạn nắm giữ và mức giá gắn liền với nó không hề quan trọng. Quan trọng là thị trường ngoài kia đang trao đổi mua bán nó ở mức bao nhiêu.
+
+Nhiều người sẽ hỏi vì sao người ta không cùng thống nhất bán hàng giá cao mà lại có người sẵn sàng bán giá thấp hơn? Bởi vì bán phá giá (dumping) là một chiến lược thu lời hiệu quả. Chúng thậm chí còn được dùng ở quy mô quốc tế, giữa các quốc gia/nền kinh tế với nhau. Việc bán phá giá sẽ giúp bạn gây thiệt hại cho đối thủ, tăng thị phần cho bản thân, loại bỏ cạnh tranh cũng như thiết lập thế độc quyền nơi bạn có thể đơn phương đưa ra giá cả và chất lượng sản phẩm. Nếu như bạn bán phá giá nhưng mở ra được pool thanh khoản rộng và tăng volume giao dịch, bạn có thể kiếm được dòng tiền thật trong lúc những người khác đang bị đóng băng tài sản.
+
+Tất nhiên bất kể chiến lược nào cũng đi kèm rủi ro, nhưng bán phá giá tạo ra sự hỗn loạn nhất định cho thị trường và rất khó xử lý, cũng như đi ngược lại lợi ích của số đông. Vì vậy, hầu như mọi thị trường đều có các quy định chống bán phá giá được thiết lập thành luật hình sự, cũng như các hiệp hội và thương hội có các điều khoản dân sự quy định chống bán phá giá. Chẳng hạn, các sàn bất động sản có thể thỏa thuận với nhau về mức giá sàn 900 nghìn USD và không cho phép những ai bán giá thấp hơn rao bán trên sàn, ngay cả khi số nhà 900 nghìn USD kia hiện không có ai mua. Tất nhiên thị trường có thể biến động mạnh đến mức người ta không thể giữ giá bằng các thống nhất về giá sàn mãi được.
+
+6. Vận dụng
+
+Như vậy chúng ta về cơ bản đã hiểu được về cơ chế định giá của thị trường, sự hiện diện của các market maker, hiểu về thanh khoản, khối lượng giao dịch, trượt giá và bán phá giá... rốt cuộc những hiểu biết này giúp ích gì?
+
+Đầu tiên, định giá của cá nhân bạn không có ý nghĩa, bất kể cơ sở của nó là gì. Nếu như muốn tạo ra thị trường dưa hấu cấm với định giá 1,000$ cho mỗi miếng, thì đó là mức thấp nhất được chào ở ngày mở bán. Bạn bán 1000 miếng cho 1000 người và thu về 1 triệu USD. Nhưng sau đó 1000 miếng dưa hấu kia có thể chỉ còn giá 0,1$/miếng. Vì thị trường sau đó sẽ quyết định giá cả của chúng, thông qua các buổi bán đấu giá.
+
+Để giá của chúng tăng, phải có thêm người muốn mua chúng ở giá cao hơn. Hay ngắn gọn là phải có thanh khoản. Nếu những miếng dưa hấu của bạn vô dụng, 1000 người kia không thể bán cho ai, thì hoặc họ không bán và giá giữ nguyên, hoặc bắt đầu có những người muốn bán ở giá thấp hơn để lấy lại tiền. Nếu như họ bán ở giá 900$ vẫn không có ai mua, thì họ buộc phải bán thấp hơn nữa. Nếu pool thanh khoản của thị trường dành cho mớ dưa hấu ấy chỉ rơi ở mức 10$, thì đó sẽ là giá của chúng. Thậm chí, nếu như bể thanh khoản chỉ có 100 người đang sẵn sàng mua dưa hấu cấm với giá 10$, tương ứng với 100 miếng, thì nếu có nhiều hơn số miếng dưa hấu cần được bán ra, giá sẽ tụt thê thảm hơn nữa.
+
+Tất nhiên bạn có thể chọn việc dùng 1 triệu $ kia để mua lại dưa hấu để kiếm lời vì cho rằng giá sẽ tăng. Nhưng bạn chỉ có thể kiếm lời được khi có thanh khoản. Nếu giá dưa hấu tụt xuống 500$ và bạn dùng nửa triệu $ để mua lại toàn bộ để trở thành độc quyền, câu hỏi đặt ra là, bạn có thể bán lại chúng ở mức giá cao hơn được không? Biết rằng nếu như thị trường chỉ còn 1 player duy nhất là bạn, thì bạn thích rao 1 tỷ $ hay 500$ cho một miếng dưa hấu cũng không quan trọng bằng việc có ai sẵn sàng mua nó ở mức giá ấy hay không.
+
+Thị trường tài sản thường phức tạp hơn bởi vì bài toán ví dụ trên nói rằng toàn bộ dưa hấu đã được tung ra thị trường để pha loãng hoàn toàn - trên thực tế các món hàng đã được thị trường pha loãng như thế này hiếm khi trượt giá do nguyên nhân tự nhiên. Trong các trường hợp khác, như token của các dự án, lô đất bạn được gia đình để lại, cổ phần của công ty... đặc điểm chung là phần lớn chúng đều nằm bên ngoài thị trường và được định giá bởi những thị trường bé hơn nhiều so với tổng số lượng tài sản/hàng hóa thực tế. Như giá của 1 triệu cổ phần công ty bạn đang sở hữu được định giá bằng 10,000 cổ phần đang được bán ngoài thị trường; giá của hơn 20 triệu BTC được định giá bằng 10,000 BTC được mua bán mỗi ngày. Vì vậy, đôi lúc 10% tổng hàng hóa được giao dịch ngoài thị trường quyết định 100% giá trị của tổng hàng hóa bên trong thị trường ấy, nhưng nếu như tổng số hàng hóa cần bán tăng lên ở mức 20% hay 30% trên tổng, thì giá của toàn bộ hàng hóa mà mọi người đang nắm giữ sẽ giảm đi rất nhiều.
+
+Trong các thị trường như crypto nơi thao túng giá và bán phá giá vẫn hoành hành và không có khung pháp lý, một quỹ đủ lớn có thể gom hàng đầu cơ để thao túng giá. Việc đầu cơ của quỹ này khiến cung giảm và khi nhu cầu tăng, giá sẽ tăng. Quỹ này có thể có lời cho hành vi đầu cơ của mình. Giả sử họ có được rất nhiều lợi nhuận, sau đó họ có thể thực hiện hành vi bán phá giá. Việc bán phá giá của họ sau đó lại khiến tài sản tụt dốc không phanh và ảnh hưởng đến toàn bộ những ai đang nắm giữ tài sản ấy.
+
+Chẳng hạn, có 10% cổ phiếu của một công ty X trôi nổi ngoài thị trường và 90% đang được giữ lại trong ví của các holder. Một quỹ A có thể thao túng giá của 10% đang giao dịch và kiếm lời, sau đó lại phá giá và thao túng 10% ấy gây thiệt hại cho 90% còn lại. 90% còn lại nếu panic sale thì sẽ khiến tình hình trở nên tệ hơn và nhóm bán phá giá bắt đầu thu về lợi nhuận nhiều hơn. Tất nhiên, trong phần lớn thời gian và ở điều kiện bình thường, chúng ta có thể hiểu rằng 90% holder sẽ cố gắng phòng thủ chứ không để bị thao túng giá từ một vài tay chơi trong thị trường.
+
+Tuy nhiên, trong bối cảnh thị trường còn non nớt, những người nắm giữ tài sản không có sự kết nối, tình hình tài chính chung gặp khó khăn, thì sức mạnh của những nhóm đa số không mạnh như hình dung của mọi người mà bị quyết định bởi các nhóm thiểu số. Khi tài sản trên thị trường bị giảm giá, khối tài sản của những người nắm giữ cũng bị giảm giá trị, và chúng ta sẽ thấy hiện tượng "tiền bốc hơi" như trong các title báo liên quan tới "1000 tỷ bốc hơi khỏi thị trường".
+
+Thực ra con số 1000 tỷ kia chưa bao giờ tồn tại.
+
+Vì vậy, giá cả và độ an toàn về giá của một tài sản không liên quan tới nguồn cung của nó, không liên quan tới giá niêm yết của nó... mà liên quan tới thanh khoản của thị trường. Nếu một tài sản vì lý do nào đó mà có giá trị với thị trường, thì thanh khoản sẽ cao và độ trượt giá sẽ thấp. Ngược lại, trong các thị trường nặng tính đầu cơ như crypto, việc thuyết phục lẫn nhau về số lượng tối đa của các token không có giá trị gì, bởi vì giá của nó về sau cùng sẽ trượt về bể thanh khoản nơi có nhiều lệnh đặt mua.
+
+Để có nhiều thanh khoản, cần có lý do để người ta sẵn sàng mua một mặt hàng tại một mức giá nào đó. Các lý do này có thể không lành mạnh (đầu cơ, thị trường bị thao túng), cũng có thể lành mạnh (mặt hàng thực sự có giá trị cao hơn giá của nó) và ảnh hưởng của các chính sách tiền tệ.
+
+Chẳng hạn trong thế giới crypto, thanh khoản của Bitcoin được tạo lập, phát triển và duy trì trong thời gian dài vì BTC thực sự có thể cung cấp cho người dùng những lợi ích mà nó đã cam kết: bảo mật, giao dịch xuyên quốc gia, lưu trữ tài sản và càng ngày càng được chấp nhận một cách rộng rãi. Tất nhiên thị trường sẽ quyết định xem những lợi ích này tương ứng với giá bao nhiêu, và các bể thanh khoản là nơi có nhiều lệnh đặt mua BTC ở từng mức giá cụ thể. Chẳng hạn, khi BTC có 1000 lệnh đặt mua ở vùng giá 10,000$, đây sẽ trở thành vùng hỗ trợ và giá sẽ không giảm miễn là vẫn còn người sẵn sàng trả mức giá này để mua. Nếu nhu cầu mua vẫn tiếp tục tăng, giá BTC sẽ tăng tiếp cho đến khi không còn thanh khoản nữa, sau đó giá sẽ lại rơi xuống trở về vùng thanh khoản 10,000$. Nếu số lệnh đặt mua BTC ở vùng 10,000$ đã cạn hoặc chưa được bổ sung thêm, giá sẽ rơi xuống các vùng giá thấp hơn có thanh khoản cao hơn. Nếu người ta luôn muốn bán BTC ở giá 12,000$ và luôn muốn mua BTC ở giá 10,000$, sẽ có hiện tượng sideway trên đồ thị giá. Trong quá trình sideway cũng như các biến động giá khác, rất nhiều người sẽ bị kẹt lại và giữ thêm BTC, trong lúc tiền của họ nằm lại thị trường, đóng góp vào thanh khoản. Như vậy, một thị trường hoạt động ổn định càng lâu, càng tạo ra nhiều thanh khoản.
+
+Những blockchain layer 1 khác như Ethereum, Binance Smart Chain, Avalanche hay Solana… cần tạo ra một hệ sinh thái phong phú các dự án để thu hút người dùng, tạo thanh khoản thực cho thị trường. Lấy ví dụ Avalanche, token $AVAX của họ có giá trị nhờ vào số lượng đông đúc của nhiều người cần $AVAX, từ các chủ dự án, những nhà phát triển cho đến người dùng. Các dự án trên những layer 1 như Avalanche sẽ bao gồm từ sàn giao dịch, launchpad, chợ NFT, GameFi… hỗ trợ lẫn nhau để đảm bảo rằng họ có thể phục vụ được người dùng tốt nhất. Bản thân Avalanche cũng hấp dẫn hơn các layer 1 khác bằng những các cạnh tranh mang tính kỹ thuật như tốc độ giao dịch, chi phí rẻ, khả năng mở rộng cao… Những lợi thế này giúp họ đảm bảo thu hút người dùng và mở rộng hệ sinh thái trong tương lai dài hạn. Các nhà sáng lập và vận hành của Avalanche cũng phải hỗ trợ về cả vốn lẫn công nghệ để những dự án tốt phát triển trên nền tảng của họ nhằm đảm bảo rằng hệ sinh thái của họ được lấp đầy bởi các dự án hữu ích cho người dùng. Như TraderJoe cung cấp giao dịch có độ ổn định cao và chi phí thấp; Avalaunch có thành tích hỗ trợ gọi vốn từ cộng đồng uy tín đem về hàng triệu USD cho các dự án; Crabada là một trong những tựa GameFi nổi bật nhất trong lịch sử GameFi… đều có những tiến bộ về mặt công nghệ và các tính năng hỗ trợ người dùng để giúp hệ sinh thái Avalanche ngày càng đông đúc và sôi động hơn. Những layer 1 có hệ sinh thái đa dạng, nhiều người dùng và hoạt động sôi nổi vì vậy cũng là những nơi có thanh khoản tốt đảm bảo cho giá trị của các tài sản nằm trên layer 1 ấy.
+
+Ngoài những yếu tố nội tại của tài sản và thị trường cho tài sản ấy, các yếu tố vĩ mô như chính sách tiền tệ kiểm soát lợi ích khi bạn nắm giữ tài sản cũng sẽ ảnh hưởng đến mức giá của hàng hóa. Chẳng hạn, nếu FED tăng lãi suất và khiến đô la tăng giá, giá BTC sẽ giảm vì người ta có nhiều khoảng trống (space) hơn để chấp nhận bán giá BTC mức thấp hơn. Nếu 1$ hiện tại bằng 1,2$ trong quá khứ, thì việc bán BTC ở mức thấp hơn 20% vẫn không bị lỗ. Vì vậy, khi giá $ tăng, ngay lập tức các mặt hàng khác sẽ giảm giá, giả sử mọi yếu tố khác giữ nguyên. Ngược lại với tình trạng lãi suất thấp, tiền rẻ và lạm phát cao. (Đây chỉ là một ví dụ về một hiệu ứng trong nhiều hiệu ứng từ việc NHTW tăng lãi suất).
+
+Tuy nhiên, sự thay đổi giá của một mặt hàng so với tiền pháp định không quan trọng bằng sự thay đổi giá của chúng so với những tài sản khác trên thị trường. Nếu 1 BTC vẫn có thể đổi lấy 1 chiếc xe và nhiều mặt hàng khác với số lượng tương đương ngay cả khi giá của nó trong năm nay đã giảm so với năm trước, thì chúng ta có thể xem rằng giá trị của BTC không đổi. Do vậy, dù giá của một món hàng có thể bị ảnh hưởng trong ngắn hạn do các yếu tố kinh tế vĩ mô, giá trị thực của chúng vẫn được xác định bằng thanh khoản và thị trường gắn liền với chúng. Các dự án crypto tử tế và nghiêm túc vì vậy vẫn sinh tồn tốt và ngày càng trở nên giá trị hơn nếu chúng vẫn phát triển qua các biến động vĩ mô.
+
+Vì vậy, về sau cùng, giá của những miếng táo cấm có thể cực kỳ cao nếu như nó độc nhất, khan hiếm và gắn liền với sự ra đời của nhân loại, hoặc rẻ rúng như bất kỳ miếng táo nào khác trên thị trường.
+
+
+
+
+
+
+Article: Liquidity And Valuation On The Financial Market
+
+Genres: ['Economics']
+Tags: ['Finance', 'Bitcoin', 'Macroeconomics', 'Cryptocurrency', 'Money']
+Creators: ['Trần Tiến']
+Date: 2023-01-03
+
+
+Description:
+
+The majority of commodity prices in financial markets are set through open auction
+
+An item with sufficient liquidity and volume, or in other words, there are auctions that are always crowded with participants, is an item with a better price guarantee than other items
+
+The prices of goods in the market can be manipulated if auctions can be manipulated easily
+
+Content:
+
+We’re accustomed to getting a cup of Starbucks for $3 and a hamburger for $5, and rarely question these valuations. If anyone sells similar items, they are usually priced similarly. However, if an entirely new good is introduced to the market, how would one know how much it would cost?
+
+How much is the apple that Adam gave Eve worth, knowing a normal apple costs $1? $10, $1,000, or $1,000,000? And how can we determine it?
+
+How does one value an Apple stock, a Bitcoin, or an NFT minted from a random rock photo?
+
+1. Auction-based pricing mechanism
+
+Currently, most markets use auctions to determine a specific item’s price. Normally, it is determined by the highest offer made by the buyer and the lowest price offered by the seller at a given time.
+
+For example, the owner of the forbidden apple holds an auction with a starting bid of $1. When the first buyer approaches the seller, its price is $1. If the next person is willing to pay $10, this will be raised to $10, then $100, $1,000, and so on. As a result, the market price of this fruit is the highest price someone is willing to pay.
+
+Following the auction, the new owner then decides to cut the apple into 1000 pieces and sell each for $1000 via auction. The 1000 new owners then hold an auction to resell their pieces. There are those who are well-spoken and sell their pieces for $100,000, and those who need money and are willing to sell theirs for $100 each.
+
+In any market, people buy and sell at different prices, and they can't know everyone else's trading details, so they often make the decisions that are most beneficial to themselves: Sellers propose the lowest price they can accept, and buyers offer the highest they're willing to pay.
+
+Within the market, there is a group known as market makers who ensure goods are circulated and that buyers and sellers get what they want. Market makers have the most advanced tools and the most comprehensive market data. Often, they notice that some people are selling goods at a lower price than others’ offers. In this case, they will act as a middleman who buys from the seller, sells to the buyer, and gains the price difference for herself.
+
+Exchanges themselves usually act as market makers since they have complete order information of all users. This behavior is a low-risk economic activity known as arbitrage. Arbitrage can be found everywhere, for example, buying vegetables from a farm then selling them in the city. To be a market maker in the financial market, however, you must have capital, high-tech tools, and adequate data.
+
+Normally, market makers are the ones to determine the market price since they are the best buyers and sellers. However, the basis of price determination is entirely dependent on market supply and demand, so arbitrage and price manipulation are not related in theory, though in fact, market makers can choose to manipulate the price when applicable.
+
+2. Liquidity
+
+In general, market liquidity is defined as the rate, price, optimality, and cost of converting one commodity to another.
+
+For example, with a highly liquid asset like fiat, you can instantly exchange anything you want. There are many people open to immediate trade, and there’s no risk of slippage.
+
+Real estate, for example, is an illiquid asset since it can take months or years for a successful sale. An illiquid item is one that is difficult to find buyers for, the process of buying and selling takes time, and the price often varies wildly between the seller’s and the buyer’s.
+
+Commodities of the same category may have different liquidity. For example, iPhones have long been thought to be more liquid than Android phones, which allows Apple to sell them more easily and with less slippage. In the stock market, bluechips have the best liquidity and lowest slippage as the demand is always high. The same can be said for the cryptocurrency market.
+
+Therefore, to answer the question of whether the forbidden apple is a highly liquid good, we need to address another question:
+
+How many people are interested in buying it, and how quickly will it be sold?
+
+Because pricing is determined through auction, a highly liquid apple often takes the shape of a successful auction with many buyers competing for the buy option. Meanwhile, the auction for an illiquid apple would be a failure: instead of buying, people will try to sell it at the best possible price and then leave the session.
+
+3. Volume
+
+The more traders a market has, the more likely you are to sell your goods at the desired price. A successful auction attracts a horde of people. As a result, a highly liquid market also has a high volume of transactions.
+
+If a large number of people are willing to pay $20,000 for an apple piece, all pieces for sale at that price will be sold out. To buy more, buyers must raise their proposed prices to attract sellers. This process goes on as long as there are a large number of people looking for apples. The rise in apple prices indirectly fuels the surge in sellers. As can be seen from this example, buying demand immediately increases liquidity and trading volume since there are more sellers with each additional order.
+
+In the opposite scenario, if many people want to sell their apples, the trading volume and liquidity will be reduced accordingly. For every seller at a lower price, those selling at a higher price will temporarily leave the market because they refuse to sell at the price others are offering. This high-seller group includes all previous buyers who paid a higher price for the item. Because there are always low-sellers, the number of buyers will decrease because they have no incentive to compete. In fact, they have more incentive to wait. A bear market is thus both the cause and result of a drop in volume.
+
+To demonstrate the current price of the apple, market makers collect and graphically display market-wide trading data. The most common type of chart in this market depicts prices as candlesticks, with the top representing the highest price and the bottom the lowest price at which apples were traded. This chart type uses units of time like minute, hour, day, week, month or year.
+
+Please note that the candle length does not correspond to the number of auctioned apples. The length of the candle would be the same if only two apples were sold yesterday, with the lowest price being $10,000 and the highest being $20,000. If 100,000 apples were bought and sold today at $10,000 and $20,000 correspondingly, the candle would have the same shape as yesterday’s.
+
+Nevertheless, new markets emerge continuously, so the price chart does not represent “pricing in one market”. Instead, it reflects the price of "many markets in a row". Despite sharing the same graph, the 2021 crypto market is vastly different from 2022.
+
+4. Slippage
+
+If the apple’s price fluctuates too quickly though few people are involved in the trade, we anticipate this item as one with high slippage. The price here is inversely proportional to liquidity: low liquidity results in high slippage and vice versa.
+
+In the case of real estate, for example, a condo’s price during the boom may be $1 million. However, this valuation may not be the same after a few months, or drop slightly to $900,000 or less when the market crashes. That property can instantly drop 50% or more in value in just one day if that's the highest price people are willing to buy in the next auction.
+
+Similarly, Bitcoin at $69,000 and beginning to fall does not imply that it would drop a dollar, a few dollars, or hundreds of dollars per BTC, but the slippage can be thousands or tens of thousands of dollars in just a few days.
+
+Thus, if you are interested in the apples or any other commodity, you must first consider volume and liquidity because they have a direct impact on price.
+
+5. Dumping and market manipulation
+
+Market price is the lowest listed price for an item. Even if 1000 people are owning apples and believe they are worth $1 million, just 100 people willing to sell their apples for $500 each can devalue the entire market. People will just buy apples at $500 and trade within that price range. At that point, apple price will be determined by liquidity in that $500 range, and the one-million-dollar pieces will have to stay out of the market.
+
+The same is true for every other market in the world: the value of a market transaction made by a minority determines the price of an asset. If the 900 apple owners couldn't afford to buy all of the lower-priced apples on the market, the price of apples would never rise to their expected valuation. It makes no difference how much BTC or APPL stock you own or how much they are priced in the market. What matters is how much the market is willing to pay for them.
+
+Many people wonder why traders don’t sell at high prices but choose to sell at a lower price. The answer is dumping itself is a profitable business strategy. It’s even used at international levels, between countries and economies. Dumping allows any organization to harm its competitors, increase market shares, eliminate competition, and establish a monopoly in which it can set standards for price and product quality. Simply put, if you dump but that action creates a large liquidity pool and increases trading volume, you can make real money while your competitors are frozen.
+
+Of course, any strategy entails risks, but dumping goes against the majority's interests, brings market chaos and is very difficult to address. For these reasons, almost every market adopts anti-dumping regulations, and trade associations impose civil provisions that regulate dumping. For example, real estate brokers can agree on a $900,000 floor price and refuse to list properties at lower prices, even if those goods are currently unsold. Of course, the market can become so volatile that floor-pricing won’t keep prices stable forever.
+
+6. Application
+
+So far, we've learned about the pricing mechanism, the role of market makers, liquidity, trading volume, slippage, and dumping, but what does all of this mean?
+
+First, personal valuation, on whatever basis, makes no sense. If you want to create a forbidden watermelon market with the lowest starting price being $1,000 a piece, you’ll earn a million dollars by selling 1000 pieces to 1000 people. However, those pieces may cost as little as 0.1$ each because auctions will reassess your initial valuation.
+
+For their prices to rise, the demand must be heavier; in other words, there must be more liquidity. If your watermelon pieces are useless, and there’s no demand for them, either the 1000 buyers don't sell and the price stays the same, or some sell at a lower price to recoup losses. If they sell at $900 and no one buys, sellers are then coerced to lower their offer. If there’s liquidity for those watermelons at $10, then that’s their price. Even at this point, if there are only 100 people willing to buy them at $10, corresponding to 100 pieces, supply is still higher than demand, and the price will fall even further.
+
+Of course, you could use your $1 million to buy back watermelons if you believe the price will rise. However, positive profit demands liquidity. If the price falls to $500 and you spend half a million dollars to repurchase it all, you will establish a monopoly. The question, however, is whether you can resell them at a higher price. When there’s only 1 player in the market, it doesn't matter whether you want to sell a watermelon at $1 billion or $500. What matters is whether people are willing to buy at that price.
+
+Reality is even more complicated. In the above example, all watermelons are marketed and thus fully diluted, but such phenomenon is quite uncommon in asset markets. For other assets like crypto tokens, real estates, or company shares, the majority are located outside the market and are valued by much smaller markets within it. To demonstrate, one million shares of your company are valued by 10,000 shares sold on the market; the price of over 20 million BTC is determined by that of 10,000 BTC traded every day. Most of the time, 10% of all goods traded outside a market may determine the value of all goods within that market. Still, if the total amount of goods for sale increases to 20% or 30%, the price will fall dramatically.
+
+In the crypto market, dumping and price manipulation are prevailing and there’s been no regulatory framework in place. In such a market, a large-enough fund can speculate tokens and manipulate their prices. This speculative behavior reduces supply; and as demand rises, so will the price. This process hugely profits the fund. With profit, that fund can go dumping, causing the asset valuation to plummet and disturbing others’ position.
+
+Consider this case: 10% of company X’s shares are floating in the market, and the remaining are held in holders' wallets. Fund A can manipulate listed stocks’ price, profit from it, then dump to sabotage the remaining 90%. If the latter opt for panic sales, the situation will get worse, and dumpers will profit even more. Nevertheless, most of the time, 90% of holders will choose to ‘defend’  to avoid maneuver from those saboteurs.
+
+In case the market is still immature, asset holders are not very connected. In rough financial situations, it’s the minority, not the majority, that gives the final decisions. Asset value fall often cripples the holders, and sparks the phenomenon of "evaporating money" as in headlines like "a trillion evaporated from the market".
+
+In fact, that “trillion” never existed.
+
+Thus, the price and safety of an asset's price are dependent on liquidity, not its supply or quoted price. If a market asset is valuable for some reasons, liquidity will be correspondingly high and slippage will stay low. In stark contrast, in speculative markets such as crypto, bragging about token supply is pointless, since the price is contingent on the liquidity pools with most orders.
+
+To attain liquidity, people must be convinced to pay a certain price for that item. Convincing-enough reasons include negative (speculation or market manipulation) or positive (underprice) factors, and monetary policies.
+
+In the crypto market, for example, Bitcoin liquidity is created, developed, and maintained over time for it truly provides users with the benefits it has promised: security, transnational transactions, storage, and growing acceptance. The market determines how much these gains correspond to its price, and liquidity pools are where BTC orders at each specific price are placed. If there are 1000 buy orders at $10,000, this becomes the support threshold and the price will not fall as long as there are traders willing to buy BTC at that price. If buying demand remains high, BTC price will rise until there is no more liquidity; at which point it will fall back to lower price ranges with higher liquidity. If traders always buy BTC at $10,000 and sell it at 12,000, there will be sideways on the price chart. During sideways and other price movements, many people choose to buy more BTC and get stuck there. Their money remains in the market and contributes to liquidity; as a result, the more stable a market is, the more liquidity it attains.
+
+Layer 1 blockchains like Ethereum, Binance Smart Chain, Avalanche, or Solana, etc. must develop a diverse ecosystem of projects to attract traders and provide real liquidity to the market. Take Avalanche as an example, $AVAX token is highly valued due to the burgeoning demand for it from project owners, developers, and users. Layer 1 projects on Avalanche include exchanges, launchpads, NFT marketplaces, GameFi and so on, all of which collaborate to ensure customer service. Compared with other layer 1s, Avalanche is more appealing since it features high transaction speed, low cost, and high scalability. These advantages greatly aid in user attraction and ecosystem expansion in the long run. To ensure their ecosystem is filled with projects that are useful to users, Avalanche founders and operators offer financial and technical support for good projects to grow within their ecosystem. The ecosystem features, for instance, TraderJoe with high stability and low cost trading; Avalaunch with reputable crowdfundings that secure millions of dollars for projects; or Crabada with one of the most prominent GameFi projects in history. All of which feature technological advancements and great user support to grow the Avalanche ecosystem more crowded and vibrant. In turn, the diverse ecosystem, large user base, and vibrancy create more liquidity to ensure asset value on this layer 1.
+
+Aside from the intrinsic value of the asset and the market for it, macro factors such as monetary policies, which affect holder benefit, will also affect asset value. For example, if FED raises the interest rates and the dollar strengthens, BTC price will fall as people become less reluctant to accept lower prices. If the current $1 is equal to $1.2 in the past, selling BTC at a 20% discount is still a no-loss transaction. Simply put, with the position of the dollar rising, the price of other items falls immediately, assuming other factors remain constant. In stark contrast, with low interest rates, money becomes devalued and inflation goes all the way up. Of course, this is only a very small example of the impact of monetary policy.
+
+However, the price fluctuation of an item with regards to the fiat currency is not as significant as the correlation of assets in the market. Given that a BTC can still be exchanged for a car and many other items even if its price has decreased year on year, its value has remained largely unchanged. While macroeconomic factors may affect an item's price in the short run, its actual value is determined by the market and liquidity for it. For this reason, earnest crypto projects will grow in value if they can bear macro fluctuations.
+
+After all, the forbidden apple’s price can be insanely high if it is unique, scarce, and marks the birth of mankind, or as low as that of any other apple on the market.
+
+
+
+
+
+

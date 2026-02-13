@@ -3,6 +3,9 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { logger } from '../utils/logger';
 
+// ZIP/DOCX magic bytes: PK\x03\x04
+const ZIP_MAGIC = Buffer.from([0x50, 0x4b, 0x03, 0x04]);
+
 export class WordService {
   private dataDir: string;
   private fileIndex: Map<string, string> = new Map(); // normalized name -> full path
@@ -62,6 +65,59 @@ export class WordService {
     return undefined;
   }
 
+  private async isRealDocx(buffer: Buffer): Promise<boolean> {
+    return buffer.length >= 4 && buffer.subarray(0, 4).equals(ZIP_MAGIC);
+  }
+
+  private parsePlainTextToHtml(text: string): string {
+    // Split into metadata header and article body at "Bài viết:" marker
+    const bodyMarker = /\n\s*Bài viết:\s*\n/i;
+    const match = text.match(bodyMarker);
+
+    let body: string;
+    if (match && match.index !== undefined) {
+      body = text.substring(match.index + match[0].length).trim();
+    } else {
+      // No marker found — try splitting after "Description:" block
+      const descMarker = /\n\s*Description:\s*\n/i;
+      const descMatch = text.match(descMarker);
+      if (descMatch && descMatch.index !== undefined) {
+        body = text.substring(descMatch.index + descMatch[0].length).trim();
+      } else {
+        // Fallback: use everything after the header lines
+        body = text.trim();
+      }
+    }
+
+    // Convert plain text paragraphs to HTML
+    const paragraphs = body.split(/\n\s*\n/).filter(p => p.trim());
+    return paragraphs.map(p => `<p>${this.escapeHtml(p.trim())}</p>`).join('\n');
+  }
+
+  private parsePlainTextBody(text: string): string {
+    const bodyMarker = /\n\s*Bài viết:\s*\n/i;
+    const match = text.match(bodyMarker);
+
+    if (match && match.index !== undefined) {
+      return text.substring(match.index + match[0].length).trim();
+    }
+
+    const descMarker = /\n\s*Description:\s*\n/i;
+    const descMatch = text.match(descMarker);
+    if (descMatch && descMatch.index !== undefined) {
+      return text.substring(descMatch.index + descMatch[0].length).trim();
+    }
+
+    return text.trim();
+  }
+
+  private escapeHtml(str: string): string {
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+
   async parseWordFile(slug: string, titleVi?: string): Promise<string> {
     const filePath = this.findFile(slug, titleVi);
     if (!filePath) {
@@ -71,15 +127,20 @@ export class WordService {
 
     try {
       const buffer = await fs.promises.readFile(filePath);
-      const result = await mammoth.convertToHtml({ buffer });
 
-      if (result.messages.length > 0) {
-        result.messages.forEach(msg => {
-          logger.debug(`mammoth [${msg.type}]: ${msg.message}`);
-        });
+      if (await this.isRealDocx(buffer)) {
+        const result = await mammoth.convertToHtml({ buffer });
+        if (result.messages.length > 0) {
+          result.messages.forEach(msg => {
+            logger.debug(`mammoth [${msg.type}]: ${msg.message}`);
+          });
+        }
+        return result.value || '<p>Content unavailable</p>';
       }
 
-      return result.value || '<p>Content unavailable</p>';
+      // Plain-text file with .docx extension
+      const text = buffer.toString('utf-8');
+      return this.parsePlainTextToHtml(text);
     } catch (err) {
       logger.error(`Error parsing Word file ${filePath}: ${(err as Error).message}`);
       return '<p>Content unavailable</p>';
@@ -94,8 +155,15 @@ export class WordService {
 
     try {
       const buffer = await fs.promises.readFile(filePath);
-      const result = await mammoth.extractRawText({ buffer });
-      return result.value || '';
+
+      if (await this.isRealDocx(buffer)) {
+        const result = await mammoth.extractRawText({ buffer });
+        return result.value || '';
+      }
+
+      // Plain-text file with .docx extension
+      const text = buffer.toString('utf-8');
+      return this.parsePlainTextBody(text);
     } catch (err) {
       logger.error(`Error extracting text from ${filePath}: ${(err as Error).message}`);
       return '';

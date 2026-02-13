@@ -59,7 +59,7 @@ async function bootstrap(): Promise<void> {
   // Serve frontend static files in production
   const publicDir = path.resolve(__dirname, '../../frontend/dist/frontend/browser');
   app.use(express.static(publicDir));
-  app.get('*', (_req, res, next) => {
+  app.get('{*path}', (_req, res, next) => {
     const indexPath = path.join(publicDir, 'index.html');
     res.sendFile(indexPath, (err) => {
       if (err) next();

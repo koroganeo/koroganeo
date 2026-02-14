@@ -1,4 +1,4 @@
-import { Component, inject, signal, OnInit } from '@angular/core';
+import { Component, inject, signal, computed, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ArticleService } from '../../core/services/article.service';
 import { LanguageService } from '../../core/services/language.service';
@@ -24,47 +24,39 @@ import { VietnameseDatePipe } from '../../shared/pipes/vietnamese-date.pipe';
     @if (loading()) {
       <app-loading-spinner />
     } @else if (!article()) {
-      <div class="container mx-auto px-4 py-6">
+      <div class="px-4 py-6">
         <app-empty-state
           [title]="lang.current() === 'vi' ? 'Không tìm thấy bài viết' : 'Article not found'"
           [message]="lang.current() === 'vi' ? 'Bài viết không tồn tại hoặc đã bị xóa' : 'The article does not exist or has been removed'" />
       </div>
     } @else {
-      <div class="container mx-auto px-4 py-6 max-w-4xl">
-        <!-- Breadcrumbs -->
-        <nav class="text-sm text-slate-500 mb-6" aria-label="Breadcrumb">
-          <ol class="flex items-center gap-2">
-            <li><a routerLink="/" class="hover:text-blue-600">{{ lang.current() === 'vi' ? 'Trang chủ' : 'Home' }}</a></li>
-            <li class="text-slate-300">/</li>
-            <li>{{ article()!.genres }}</li>
-            <li class="text-slate-300">/</li>
-            <li class="text-slate-700 font-medium truncate max-w-xs">
-              {{ lang.current() === 'vi' ? article()!.titleVi : (article()!.titleEn || article()!.titleVi) }}
-            </li>
-          </ol>
-        </nav>
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 py-6">
+        <!-- Back link (replaces breadcrumb) -->
+        <a routerLink="/" class="inline-flex items-center gap-1 text-sm text-slate-500 hover:text-blue-600 mb-6 transition-colors">
+          &larr; {{ lang.current() === 'vi' ? 'Trang chủ' : 'Home' }}
+        </a>
 
         <!-- Article header -->
         <header class="mb-8">
-          <span class="text-sm font-medium text-blue-600 uppercase tracking-wide">
+          <span class="text-xs sm:text-sm font-medium text-blue-600 uppercase tracking-wide">
             {{ article()!.genres }}
           </span>
-          <h1 class="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4 leading-tight">
+          <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-3 leading-tight">
             {{ lang.current() === 'vi' ? article()!.titleVi : (article()!.titleEn || article()!.titleVi) }}
           </h1>
 
           <!-- Subtitle: show alternate language title -->
           @if (lang.current() === 'vi' && article()!.titleEn) {
-            <p class="text-lg text-slate-500 italic mb-4">{{ article()!.titleEn }}</p>
+            <p class="text-base sm:text-lg text-slate-500 italic mb-4">{{ article()!.titleEn }}</p>
           } @else if (lang.current() === 'en' && article()!.titleVi && article()!.titleEn) {
-            <p class="text-lg text-slate-500 italic mb-4">{{ article()!.titleVi }}</p>
+            <p class="text-base sm:text-lg text-slate-500 italic mb-4">{{ article()!.titleVi }}</p>
           }
 
           <!-- Metadata -->
-          <div class="flex flex-wrap items-center gap-4 text-sm text-slate-600 mb-4">
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-slate-600 mb-4">
             @for (creator of article()!.creators; track creator) {
               <span class="flex items-center gap-1.5">
-                <span class="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center text-xs font-semibold text-blue-700">
+                <span class="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-blue-100 flex items-center justify-center text-xs font-semibold text-blue-700">
                   {{ creator.charAt(0) }}
                 </span>
                 {{ creator }}
@@ -93,8 +85,8 @@ import { VietnameseDatePipe } from '../../shared/pipes/vietnamese-date.pipe';
           }
         </header>
 
-        <!-- Article content -->
-        <div class="article-content prose prose-slate max-w-none" [innerHTML]="content() | safeHtml"></div>
+        <!-- Article content (switches by language) -->
+        <div class="article-content prose prose-slate max-w-none" [innerHTML]="currentContent() | safeHtml"></div>
 
         <!-- Back link -->
         <div class="mt-12 pt-6 border-t border-slate-200">
@@ -151,6 +143,20 @@ import { VietnameseDatePipe } from '../../shared/pipes/vietnamese-date.pipe';
       font-style: italic;
       margin: 1.5rem 0;
     }
+    @media (max-width: 640px) {
+      :host ::ng-deep .article-content {
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+      :host ::ng-deep .article-content h1 { font-size: 1.5rem; }
+      :host ::ng-deep .article-content h2 { font-size: 1.25rem; }
+      :host ::ng-deep .article-content h3 { font-size: 1.125rem; }
+      :host ::ng-deep .article-content table td,
+      :host ::ng-deep .article-content table th {
+        padding: 0.375rem 0.5rem;
+        font-size: 0.875rem;
+      }
+    }
   `],
 })
 export class ArticleDetailComponent implements OnInit {
@@ -159,8 +165,13 @@ export class ArticleDetailComponent implements OnInit {
   lang = inject(LanguageService);
 
   article = signal<ArticleMetadata | null>(null);
-  content = signal('');
+  contentVi = signal('');
+  contentEn = signal('');
   loading = signal(true);
+
+  currentContent = computed(() =>
+    this.lang.current() === 'vi' ? this.contentVi() : (this.contentEn() || this.contentVi())
+  );
 
   ngOnInit(): void {
     const slug = this.route.snapshot.paramMap.get('slug') || '';
@@ -172,7 +183,8 @@ export class ArticleDetailComponent implements OnInit {
     const response = await this.articleService.getArticle(slug);
     if (response) {
       this.article.set(response.article);
-      this.content.set(response.content);
+      this.contentVi.set(response.contentVi);
+      this.contentEn.set(response.contentEn);
     }
     this.loading.set(false);
   }

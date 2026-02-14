@@ -91,14 +91,16 @@ export function createArticlesRouter(
 
       res.json({
         article: matchedCached.metadata,
-        content: matchedCached.content,
+        contentVi: matchedCached.contentVi,
+        contentEn: matchedCached.contentEn,
       });
       return;
     }
 
     res.json({
       article: cached.metadata,
-      content: cached.content,
+      contentVi: cached.contentVi,
+      contentEn: cached.contentEn,
     });
   });
 

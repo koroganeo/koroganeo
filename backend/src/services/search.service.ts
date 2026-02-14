@@ -33,7 +33,8 @@ export class SearchService {
       const cached = this.cacheService.getArticle(slug);
       if (!cached) continue;
 
-      const { metadata, textContent } = cached;
+      const { metadata, textVi, textEn } = cached;
+      const textContent = textVi + ' ' + textEn;
       let score = 0;
       const highlights: string[] = [];
 

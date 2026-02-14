@@ -7,7 +7,8 @@ export interface ArticleListResponse {
 
 export interface ArticleDetailResponse {
   article: import('./article.interface').ArticleMetadata;
-  content: string;
+  contentVi: string;
+  contentEn: string;
 }
 
 export interface SearchResponse {

@@ -9,20 +9,20 @@ import { SearchService } from '../../core/services/search.service';
   imports: [RouterLink],
   template: `
     <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
-      <div class="container mx-auto px-4 py-3 flex items-center justify-between gap-4">
+      <div class="container mx-auto px-4 py-3 flex items-center justify-between gap-2 sm:gap-4">
         <!-- Logo -->
-        <a routerLink="/" class="text-xl font-bold text-blue-600 whitespace-nowrap">
+        <a routerLink="/" class="text-lg sm:text-xl font-bold text-blue-600 whitespace-nowrap shrink-0">
           MonsterBox
         </a>
 
         <!-- Search bar -->
-        <div class="flex-1 max-w-xl relative">
+        <div class="flex-1 max-w-xl relative min-w-0">
           <input
             type="search"
             [value]="searchService.searchTerm()"
             (input)="onSearch($event)"
-            [placeholder]="languageService.current() === 'vi' ? 'Tìm kiếm bài viết...' : 'Search articles...'"
-            class="w-full px-4 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+            [placeholder]="languageService.current() === 'vi' ? 'Tìm kiếm...' : 'Search...'"
+            class="w-full px-3 sm:px-4 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
             aria-label="Search articles" />
 
           @if (searchService.isSearching()) {
@@ -35,7 +35,7 @@ import { SearchService } from '../../core/services/search.service';
         <!-- Language toggle -->
         <button
           (click)="languageService.toggle()"
-          class="px-3 py-2 rounded border border-slate-300 text-sm font-medium hover:bg-slate-50 transition-colors"
+          class="px-2.5 sm:px-3 py-2 rounded border border-slate-300 text-sm font-medium hover:bg-slate-50 transition-colors shrink-0"
           [attr.aria-label]="languageService.current() === 'vi' ? 'Switch to English' : 'Chuyển sang Tiếng Việt'">
           {{ languageService.current() === 'vi' ? 'EN' : 'VI' }}
         </button>

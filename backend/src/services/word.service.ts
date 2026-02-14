@@ -1,14 +1,17 @@
-import mammoth from 'mammoth';
 import * as fs from 'fs';
 import * as path from 'path';
 import { logger } from '../utils/logger';
 
-// ZIP/DOCX magic bytes: PK\x03\x04
-const ZIP_MAGIC = Buffer.from([0x50, 0x4b, 0x03, 0x04]);
+export interface BilingualContent {
+  contentVi: string;
+  contentEn: string;
+  textVi: string;
+  textEn: string;
+}
 
 export class WordService {
   private dataDir: string;
-  private fileIndex: Map<string, string> = new Map(); // normalized name -> full path
+  private fileIndex: Map<string, string> = new Map();
 
   constructor(dataDir: string) {
     this.dataDir = dataDir;
@@ -17,7 +20,7 @@ export class WordService {
   async buildFileIndex(): Promise<void> {
     logger.info(`Building file index from: ${this.dataDir}`);
     await this.scanDirectory(this.dataDir);
-    logger.info(`Indexed ${this.fileIndex.size} Word documents`);
+    logger.info(`Indexed ${this.fileIndex.size} documents`);
   }
 
   private async scanDirectory(dirPath: string): Promise<void> {
@@ -41,13 +44,11 @@ export class WordService {
   }
 
   findFile(slug: string, titleVi?: string): string | undefined {
-    // Try direct slug match
     const normalizedSlug = this.normalizeForMatch(slug);
     if (this.fileIndex.has(normalizedSlug)) {
       return this.fileIndex.get(normalizedSlug);
     }
 
-    // Try titleVi match
     if (titleVi) {
       const normalizedTitle = this.normalizeForMatch(titleVi);
       if (this.fileIndex.has(normalizedTitle)) {
@@ -55,7 +56,6 @@ export class WordService {
       }
     }
 
-    // Try partial match on slug
     for (const [key, filePath] of this.fileIndex) {
       if (key.includes(normalizedSlug) || normalizedSlug.includes(key)) {
         return filePath;
@@ -65,50 +65,96 @@ export class WordService {
     return undefined;
   }
 
-  private async isRealDocx(buffer: Buffer): Promise<boolean> {
-    return buffer.length >= 4 && buffer.subarray(0, 4).equals(ZIP_MAGIC);
+  async parseBilingualFile(slug: string, titleVi?: string): Promise<BilingualContent> {
+    const filePath = this.findFile(slug, titleVi);
+    if (!filePath) {
+      logger.warn(`File not found for slug: ${slug}`);
+      return {
+        contentVi: '<p>Nội dung không có sẵn</p>',
+        contentEn: '<p>Content unavailable</p>',
+        textVi: '',
+        textEn: '',
+      };
+    }
+
+    try {
+      const buffer = await fs.promises.readFile(filePath);
+      const text = buffer.toString('utf-8');
+      return this.splitBilingualContent(text);
+    } catch (err) {
+      logger.error(`Error parsing file ${filePath}: ${(err as Error).message}`);
+      return {
+        contentVi: '<p>Nội dung không có sẵn</p>',
+        contentEn: '<p>Content unavailable</p>',
+        textVi: '',
+        textEn: '',
+      };
+    }
   }
 
-  private parsePlainTextToHtml(text: string): string {
-    // Split into metadata header and article body at "Bài viết:" marker
-    const bodyMarker = /\n\s*Bài viết:\s*\n/i;
-    const match = text.match(bodyMarker);
+  private splitBilingualContent(fullText: string): BilingualContent {
+    // Find the English section separator: a line starting with "Article:" after blank lines
+    const englishSectionRegex = /\n\s*\n\s*\n\s*Article:\s*.+\n/;
+    const match = fullText.match(englishSectionRegex);
 
-    let body: string;
+    let viSection: string;
+    let enSection: string;
+
     if (match && match.index !== undefined) {
-      body = text.substring(match.index + match[0].length).trim();
+      viSection = fullText.substring(0, match.index).trim();
+      enSection = fullText.substring(match.index).trim();
     } else {
-      // No marker found — try splitting after "Description:" block
-      const descMarker = /\n\s*Description:\s*\n/i;
-      const descMatch = text.match(descMarker);
-      if (descMatch && descMatch.index !== undefined) {
-        body = text.substring(descMatch.index + descMatch[0].length).trim();
+      // Fallback: try splitting on "Article:" at line start
+      const fallbackIdx = fullText.search(/^Article:\s/m);
+      if (fallbackIdx > 0) {
+        viSection = fullText.substring(0, fallbackIdx).trim();
+        enSection = fullText.substring(fallbackIdx).trim();
       } else {
-        // Fallback: use everything after the header lines
-        body = text.trim();
+        // No English section found
+        viSection = fullText.trim();
+        enSection = '';
       }
     }
 
-    // Convert plain text paragraphs to HTML
-    const paragraphs = body.split(/\n\s*\n/).filter(p => p.trim());
-    return paragraphs.map(p => `<p>${this.escapeHtml(p.trim())}</p>`).join('\n');
+    const textVi = this.extractBodyText(viSection, 'vi');
+    const textEn = this.extractBodyText(enSection, 'en');
+
+    return {
+      contentVi: this.textToHtml(textVi),
+      contentEn: enSection ? this.textToHtml(textEn) : '<p>English content unavailable</p>',
+      textVi,
+      textEn,
+    };
   }
 
-  private parsePlainTextBody(text: string): string {
-    const bodyMarker = /\n\s*Bài viết:\s*\n/i;
-    const match = text.match(bodyMarker);
+  private extractBodyText(section: string, lang: 'vi' | 'en'): string {
+    if (!section) return '';
 
+    // For Vietnamese: body starts after "Bài viết:" marker
+    // For English: body starts after "Content:" marker
+    const bodyMarker = lang === 'vi'
+      ? /\n\s*Bài viết:\s*\n/i
+      : /\n\s*Content:\s*\n/i;
+
+    const match = section.match(bodyMarker);
     if (match && match.index !== undefined) {
-      return text.substring(match.index + match[0].length).trim();
+      let body = section.substring(match.index + match[0].length).trim();
+      // Remove trailing references section [1], [2], etc.
+      const refsIdx = body.search(/\n\s*\[\d+\]\s/);
+      if (refsIdx > 0) {
+        body = body.substring(0, refsIdx).trim();
+      }
+      return body;
     }
 
+    // Fallback: try "Description:" marker and use everything after
     const descMarker = /\n\s*Description:\s*\n/i;
-    const descMatch = text.match(descMarker);
+    const descMatch = section.match(descMarker);
     if (descMatch && descMatch.index !== undefined) {
-      return text.substring(descMatch.index + descMatch[0].length).trim();
+      return section.substring(descMatch.index + descMatch[0].length).trim();
     }
 
-    return text.trim();
+    return section;
   }
 
   private escapeHtml(str: string): string {
@@ -118,55 +164,11 @@ export class WordService {
       .replace(/>/g, '&gt;');
   }
 
-  async parseWordFile(slug: string, titleVi?: string): Promise<string> {
-    const filePath = this.findFile(slug, titleVi);
-    if (!filePath) {
-      logger.warn(`Word file not found for slug: ${slug}`);
-      return '<p>Content unavailable</p>';
-    }
-
-    try {
-      const buffer = await fs.promises.readFile(filePath);
-
-      if (await this.isRealDocx(buffer)) {
-        const result = await mammoth.convertToHtml({ buffer });
-        if (result.messages.length > 0) {
-          result.messages.forEach(msg => {
-            logger.debug(`mammoth [${msg.type}]: ${msg.message}`);
-          });
-        }
-        return result.value || '<p>Content unavailable</p>';
-      }
-
-      // Plain-text file with .docx extension
-      const text = buffer.toString('utf-8');
-      return this.parsePlainTextToHtml(text);
-    } catch (err) {
-      logger.error(`Error parsing Word file ${filePath}: ${(err as Error).message}`);
-      return '<p>Content unavailable</p>';
-    }
-  }
-
-  async parseWordFileAsText(slug: string, titleVi?: string): Promise<string> {
-    const filePath = this.findFile(slug, titleVi);
-    if (!filePath) {
-      return '';
-    }
-
-    try {
-      const buffer = await fs.promises.readFile(filePath);
-
-      if (await this.isRealDocx(buffer)) {
-        const result = await mammoth.extractRawText({ buffer });
-        return result.value || '';
-      }
-
-      // Plain-text file with .docx extension
-      const text = buffer.toString('utf-8');
-      return this.parsePlainTextBody(text);
-    } catch (err) {
-      logger.error(`Error extracting text from ${filePath}: ${(err as Error).message}`);
-      return '';
-    }
+  private textToHtml(text: string): string {
+    if (!text) return '';
+    const paragraphs = text.split(/\n\s*\n/).filter(p => p.trim());
+    return paragraphs
+      .map(p => `<p>${this.escapeHtml(p.trim()).replace(/\n/g, '<br>')}</p>`)
+      .join('\n');
   }
 }

@@ -21,7 +21,8 @@ export interface ArticleListResponse {
 
 export interface ArticleDetailResponse {
   article: ArticleMetadata;
-  content: string;
+  contentVi: string;
+  contentEn: string;
 }
 
 export interface SearchResponse {

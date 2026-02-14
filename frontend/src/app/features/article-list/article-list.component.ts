@@ -68,7 +68,7 @@ import { TagChipComponent } from '../../shared/components/tag-chip.component';
       }
 
       <!-- Main grid -->
-      <div class="grid lg:grid-cols-4 gap-6">
+      <div class="grid lg:grid-cols-4 gap-4 sm:gap-6">
         <!-- Sidebar -->
         @if (showFilters()) {
           <div class="lg:col-span-1 space-y-4">
@@ -90,7 +90,7 @@ import { TagChipComponent } from '../../shared/components/tag-chip.component';
               [title]="lang.current() === 'vi' ? 'Không tìm thấy bài viết' : 'No articles found'"
               [message]="lang.current() === 'vi' ? 'Thử điều chỉnh bộ lọc' : 'Try adjusting your filters'" />
           } @else {
-            <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
+            <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4">
               @for (article of articleService.articles(); track article.slug) {
                 <app-article-card [article]="article" />
               }
@@ -112,7 +112,7 @@ export class ArticleListComponent implements OnInit {
   articleService = inject(ArticleService);
   metadataService = inject(MetadataService);
   lang = inject(LanguageService);
-  showFilters = signal(true);
+  showFilters = signal(typeof window !== 'undefined' && window.innerWidth >= 1024);
 
   ngOnInit(): void {
     this.metadataService.loadAllMetadata();

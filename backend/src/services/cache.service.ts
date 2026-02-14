@@ -1,19 +1,21 @@
 import { ArticleMetadata } from '../models/article.interface';
 import { ExcelService } from './excel.service';
 import { WordService } from './word.service';
-import { normalizeVietnamese, tokenize } from '../utils/vietnamese.utils';
+import { tokenize } from '../utils/vietnamese.utils';
 import { cacheConfig } from '../config/database.config';
 import { logger } from '../utils/logger';
 
 interface CachedArticle {
-  content: string;
-  textContent: string;
+  contentVi: string;
+  contentEn: string;
+  textVi: string;
+  textEn: string;
   metadata: ArticleMetadata;
 }
 
 export class CacheService {
   private articleCache: Map<string, CachedArticle> = new Map();
-  private searchIndex: Map<string, Set<string>> = new Map(); // normalized word -> slugs
+  private searchIndex: Map<string, Set<string>> = new Map();
 
   async warmUp(excelService: ExcelService, wordService: WordService): Promise<void> {
     const allMetadata = excelService.getAllMetadata();
@@ -36,11 +38,17 @@ export class CacheService {
 
   private async cacheArticle(metadata: ArticleMetadata, wordService: WordService): Promise<void> {
     try {
-      const content = await wordService.parseWordFile(metadata.slug, metadata.titleVi);
-      const textContent = await wordService.parseWordFileAsText(metadata.slug, metadata.titleVi);
+      const bilingual = await wordService.parseBilingualFile(metadata.slug, metadata.titleVi);
 
-      this.articleCache.set(metadata.slug, { content, textContent, metadata });
-      this.indexForSearch(metadata.slug, metadata, textContent);
+      this.articleCache.set(metadata.slug, {
+        contentVi: bilingual.contentVi,
+        contentEn: bilingual.contentEn,
+        textVi: bilingual.textVi,
+        textEn: bilingual.textEn,
+        metadata,
+      });
+
+      this.indexForSearch(metadata.slug, metadata, bilingual.textVi + ' ' + bilingual.textEn);
     } catch (err) {
       logger.warn(`Failed to cache article ${metadata.slug}: ${(err as Error).message}`);
     }
@@ -71,26 +79,20 @@ export class CacheService {
     return this.articleCache.get(slug);
   }
 
-  getArticleContent(slug: string): string | undefined {
-    return this.articleCache.get(slug)?.content;
-  }
-
   getAllCachedArticles(): CachedArticle[] {
     return Array.from(this.articleCache.values());
   }
 
   searchByTerms(terms: string[]): Set<string> {
-    const normalizedTerms = terms.map(t => normalizeVietnamese(t.toLowerCase()));
+    const normalizedTerms = terms.map(t => t.toLowerCase());
     const results = new Set<string>();
 
     for (const term of normalizedTerms) {
-      // Exact match
       const exactMatches = this.searchIndex.get(term);
       if (exactMatches) {
         exactMatches.forEach(slug => results.add(slug));
       }
 
-      // Partial match
       for (const [indexedWord, slugs] of this.searchIndex) {
         if (indexedWord.includes(term) || term.includes(indexedWord)) {
           slugs.forEach(slug => results.add(slug));

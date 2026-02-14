@@ -25,6 +25,13 @@ import { VietnameseDatePipe } from '../../shared/pipes/vietnamese-date.pipe';
         </a>
       </h2>
 
+      <!-- Subtitle (alternate language title) -->
+      @if (lang.current() === 'vi' && article().titleEn) {
+        <p class="text-sm text-slate-400 italic mb-2 line-clamp-1">{{ article().titleEn }}</p>
+      } @else if (lang.current() === 'en' && article().titleVi && article().titleEn) {
+        <p class="text-sm text-slate-400 italic mb-2 line-clamp-1">{{ article().titleVi }}</p>
+      }
+
       <!-- Metadata -->
       <div class="flex items-center gap-3 text-sm text-slate-500 mb-3">
         @if (article().creators.length > 0) {
@@ -35,7 +42,7 @@ import { VietnameseDatePipe } from '../../shared/pipes/vietnamese-date.pipe';
             {{ article().creators[0] }}
           </span>
         }
-        <span>{{ article().createdAt | vietnameseDate:'short' }}</span>
+        <span>{{ article().createdAt | vietnameseDate:lang.current():'short' }}</span>
         @if (article().length) {
           <span>{{ readingTime() }} {{ lang.current() === 'vi' ? 'phút đọc' : 'min read' }}</span>
         }

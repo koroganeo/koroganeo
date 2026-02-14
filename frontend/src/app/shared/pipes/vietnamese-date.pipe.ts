@@ -1,15 +1,10 @@
-import { Pipe, PipeTransform, inject } from '@angular/core';
-import { LanguageService } from '../../core/services/language.service';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({ name: 'vietnameseDate', standalone: true })
 export class VietnameseDatePipe implements PipeTransform {
-  private languageService = inject(LanguageService);
-
-  transform(value: string | Date, format: 'short' | 'long' = 'long'): string {
+  transform(value: string | Date, lang: 'vi' | 'en' = 'vi', format: 'short' | 'long' = 'long'): string {
     const date = value instanceof Date ? value : new Date(value);
     if (isNaN(date.getTime())) return '';
-
-    const lang = this.languageService.current();
 
     if (lang === 'vi') {
       const day = date.getDate();

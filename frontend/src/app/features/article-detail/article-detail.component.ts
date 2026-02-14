@@ -53,8 +53,11 @@ import { VietnameseDatePipe } from '../../shared/pipes/vietnamese-date.pipe';
             {{ lang.current() === 'vi' ? article()!.titleVi : (article()!.titleEn || article()!.titleVi) }}
           </h1>
 
-          @if (article()!.titleEn && lang.current() === 'vi') {
+          <!-- Subtitle: show alternate language title -->
+          @if (lang.current() === 'vi' && article()!.titleEn) {
             <p class="text-lg text-slate-500 italic mb-4">{{ article()!.titleEn }}</p>
+          } @else if (lang.current() === 'en' && article()!.titleVi && article()!.titleEn) {
+            <p class="text-lg text-slate-500 italic mb-4">{{ article()!.titleVi }}</p>
           }
 
           <!-- Metadata -->
@@ -67,7 +70,7 @@ import { VietnameseDatePipe } from '../../shared/pipes/vietnamese-date.pipe';
                 {{ creator }}
               </span>
             }
-            <span>{{ article()!.createdAt | vietnameseDate }}</span>
+            <span>{{ article()!.createdAt | vietnameseDate:lang.current() }}</span>
             @if (article()!.length) {
               <span>{{ readingTime() }} {{ lang.current() === 'vi' ? 'phút đọc' : 'min read' }}</span>
             }
